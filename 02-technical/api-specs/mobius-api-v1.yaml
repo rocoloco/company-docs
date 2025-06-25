@@ -1,0 +1,928 @@
+openapi: 3.0.3
+info:
+  title: Mobius One API
+  description: |
+    The Mobius One API provides a conversational interface to query and act across enterprise systems.
+    
+    ## Authentication
+    All API requests require authentication using Bearer tokens. Include your API key in the Authorization header:
+    ```
+    Authorization: Bearer YOUR_API_KEY
+    ```
+    
+    ## Rate Limiting
+    - Free tier: 100 requests per minute
+    - Professional: 1000 requests per minute
+    - Enterprise: Custom limits
+    
+    ## Errors
+    The API uses standard HTTP status codes and returns error details in the response body.
+  version: 1.0.0
+  contact:
+    email: api@mobius-one.com
+  license:
+    name: Proprietary
+    url: https://mobius-one.com/terms
+
+servers:
+  - url: https://api.mobius-one.com/v1
+    description: Production API
+  - url: https://staging-api.mobius-one.com/v1
+    description: Staging API
+  - url: http://localhost:8080/v1
+    description: Local Development
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: queries
+    description: Natural language query operations
+  - name: integrations
+    description: Manage system integrations
+  - name: organizations
+    description: Organization management
+  - name: users
+    description: User management
+  - name: analytics
+    description: Usage analytics and insights
+
+paths:
+  /queries:
+    post:
+      tags:
+        - queries
+      summary: Execute a natural language query
+      description: Process a natural language query across connected systems
+      operationId: createQuery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+            examples:
+              revenueQuery:
+                summary: Revenue analysis query
+                value:
+                  text: "Which customers have overdue invoices?"
+                  context:
+                    time_range: "last_30_days"
+                    include_sources: true
+      responses:
+        '200':
+          description: Query processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+              examples:
+                revenueResponse:
+                  summary: Revenue query response
+                  value:
+                    id: "q_1234567890"
+                    answer: "You have 3 customers with overdue invoices totaling $45,320"
+                    confidence: 0.95
+                    sources:
+                      - system: "salesforce"
+                        confidence: 0.98
+                        records: 2
+                      - system: "netsuite"
+                        confidence: 0.92
+                        records: 1
+                    suggested_actions:
+                      - action: "send_reminder"
+                        title: "Send payment reminders"
+                        description: "Send automated reminders to these customers"
+                    execution_time_ms: 1234
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    get:
+      tags:
+        - queries
+      summary: List query history
+      description: Retrieve query history for the authenticated user
+      operationId: listQueries
+      parameters:
+        - name: limit
+          in: query
+          description: Number of queries to return
+          schema:
+            type: integer
+            default: 20
+            minimum: 1
+            maximum: 100
+        - name: offset
+          in: query
+          description: Offset for pagination
+          schema:
+            type: integer
+            default: 0
+            minimum: 0
+        - name: from
+          in: query
+          description: Start date for query history
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: End date for query history
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Query history retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryHistoryResponse'
+
+  /queries/{queryId}:
+    get:
+      tags:
+        - queries
+      summary: Get query details
+      description: Retrieve details of a specific query
+      operationId: getQuery
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          description: Unique query identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Query details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /queries/{queryId}/feedback:
+    post:
+      tags:
+        - queries
+      summary: Provide query feedback
+      description: Submit feedback on query results
+      operationId: submitQueryFeedback
+      parameters:
+        - name: queryId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryFeedback'
+      responses:
+        '204':
+          description: Feedback submitted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /integrations:
+    get:
+      tags:
+        - integrations
+      summary: List integrations
+      description: Get all available and connected integrations
+      operationId: listIntegrations
+      responses:
+        '200':
+          description: Integrations retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntegrationsResponse'
+
+    post:
+      tags:
+        - integrations
+      summary: Connect new integration
+      description: Connect a new system integration
+      operationId: createIntegration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntegrationRequest'
+      responses:
+        '201':
+          description: Integration connected successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /integrations/{integrationId}:
+    get:
+      tags:
+        - integrations
+      summary: Get integration details
+      description: Retrieve details of a specific integration
+      operationId: getIntegration
+      parameters:
+        - name: integrationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Integration details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    delete:
+      tags:
+        - integrations
+      summary: Disconnect integration
+      description: Remove an integration connection
+      operationId: deleteIntegration
+      parameters:
+        - name: integrationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Integration disconnected successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /integrations/{integrationId}/sync:
+    post:
+      tags:
+        - integrations
+      summary: Trigger integration sync
+      description: Manually trigger data synchronization for an integration
+      operationId: syncIntegration
+      parameters:
+        - name: integrationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Sync initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyncStatus'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /organizations/current:
+    get:
+      tags:
+        - organizations
+      summary: Get current organization
+      description: Retrieve details of the authenticated user's organization
+      operationId: getCurrentOrganization
+      responses:
+        '200':
+          description: Organization details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
+    patch:
+      tags:
+        - organizations
+      summary: Update organization
+      description: Update organization settings
+      operationId: updateOrganization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationUpdate'
+      responses:
+        '200':
+          description: Organization updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
+  /users/me:
+    get:
+      tags:
+        - users
+      summary: Get current user
+      description: Retrieve details of the authenticated user
+      operationId: getCurrentUser
+      responses:
+        '200':
+          description: User details retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+    patch:
+      tags:
+        - users
+      summary: Update current user
+      description: Update user profile
+      operationId: updateCurrentUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /analytics/usage:
+    get:
+      tags:
+        - analytics
+      summary: Get usage analytics
+      description: Retrieve usage statistics and analytics
+      operationId: getUsageAnalytics
+      parameters:
+        - name: from
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: granularity
+          in: query
+          schema:
+            type: string
+            enum: [hour, day, week, month]
+            default: day
+      responses:
+        '200':
+          description: Usage analytics retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageAnalytics'
+
+  /health:
+    get:
+      tags:
+        - system
+      summary: Health check
+      description: Check API health status
+      operationId: healthCheck
+      security: []
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    QueryRequest:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          description: Natural language query text
+          minLength: 1
+          maxLength: 1000
+          example: "Which customers have overdue invoices?"
+        context:
+          type: object
+          description: Additional context for the query
+          properties:
+            time_range:
+              type: string
+              enum: [today, yesterday, last_7_days, last_30_days, last_90_days, custom]
+            start_date:
+              type: string
+              format: date
+            end_date:
+              type: string
+              format: date
+            include_sources:
+              type: boolean
+              default: true
+            max_results:
+              type: integer
+              minimum: 1
+              maximum: 1000
+              default: 100
+
+    QueryResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique query identifier
+        answer:
+          type: string
+          description: Natural language answer to the query
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Confidence score of the answer
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
+        data:
+          type: object
+          description: Structured data supporting the answer
+        suggested_actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SuggestedAction'
+        execution_time_ms:
+          type: integer
+          description: Query execution time in milliseconds
+        created_at:
+          type: string
+          format: date-time
+
+    DataSource:
+      type: object
+      properties:
+        system:
+          type: string
+          description: Source system name
+        confidence:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+        records:
+          type: integer
+          description: Number of records from this source
+        last_updated:
+          type: string
+          format: date-time
+
+    SuggestedAction:
+      type: object
+      properties:
+        action:
+          type: string
+          description: Action identifier
+        title:
+          type: string
+          description: Human-readable action title
+        description:
+          type: string
+          description: Detailed action description
+        impact:
+          type: string
+          enum: [low, medium, high]
+        automated:
+          type: boolean
+          description: Whether this action can be automated
+
+    QueryHistoryResponse:
+      type: object
+      properties:
+        queries:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuerySummary'
+        total:
+          type: integer
+          description: Total number of queries
+        limit:
+          type: integer
+        offset:
+          type: integer
+
+    QuerySummary:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        answer_preview:
+          type: string
+          maxLength: 200
+        confidence:
+          type: number
+          format: float
+        created_at:
+          type: string
+          format: date-time
+        execution_time_ms:
+          type: integer
+
+    QueryFeedback:
+      type: object
+      required:
+        - rating
+      properties:
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: Rating from 1 (poor) to 5 (excellent)
+        helpful:
+          type: boolean
+          description: Whether the answer was helpful
+        comment:
+          type: string
+          maxLength: 1000
+          description: Optional feedback comment
+
+    Integration:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [salesforce, hubspot, netsuite, quickbooks, slack, gmail, custom]
+        name:
+          type: string
+        status:
+          type: string
+          enum: [connected, disconnected, error, syncing]
+        last_sync:
+          type: string
+          format: date-time
+        next_sync:
+          type: string
+          format: date-time
+        config:
+          type: object
+          description: Integration-specific configuration
+        metrics:
+          $ref: '#/components/schemas/IntegrationMetrics'
+
+    IntegrationRequest:
+      type: object
+      required:
+        - type
+        - name
+      properties:
+        type:
+          type: string
+          enum: [salesforce, hubspot, netsuite, quickbooks, slack, gmail, custom]
+        name:
+          type: string
+          description: Friendly name for the integration
+        config:
+          type: object
+          description: Integration-specific configuration
+          additionalProperties: true
+
+    IntegrationMetrics:
+      type: object
+      properties:
+        records_synced:
+          type: integer
+        last_error:
+          type: string
+        error_count:
+          type: integer
+        avg_sync_time_ms:
+          type: integer
+
+    IntegrationsResponse:
+      type: object
+      properties:
+        connected:
+          type: array
+          items:
+            $ref: '#/components/schemas/Integration'
+        available:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntegrationType'
+
+    IntegrationType:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        logo_url:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+
+    SyncStatus:
+      type: object
+      properties:
+        sync_id:
+          type: string
+        status:
+          type: string
+          enum: [pending, in_progress, completed, failed]
+        started_at:
+          type: string
+          format: date-time
+        estimated_completion:
+          type: string
+          format: date-time
+
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        plan:
+          type: string
+          enum: [free, starter, professional, enterprise]
+        created_at:
+          type: string
+          format: date-time
+        settings:
+          $ref: '#/components/schemas/OrganizationSettings'
+        usage:
+          $ref: '#/components/schemas/OrganizationUsage'
+
+    OrganizationSettings:
+      type: object
+      properties:
+        default_timezone:
+          type: string
+        data_retention_days:
+          type: integer
+        allowed_domains:
+          type: array
+          items:
+            type: string
+        features:
+          type: object
+          additionalProperties:
+            type: boolean
+
+    OrganizationUsage:
+      type: object
+      properties:
+        queries_this_month:
+          type: integer
+        queries_limit:
+          type: integer
+        users_count:
+          type: integer
+        users_limit:
+          type: integer
+        integrations_count:
+          type: integer
+        integrations_limit:
+          type: integer
+
+    OrganizationUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        settings:
+          $ref: '#/components/schemas/OrganizationSettings'
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        role:
+          type: string
+          enum: [admin, user, viewer]
+        created_at:
+          type: string
+          format: date-time
+        last_login:
+          type: string
+          format: date-time
+        preferences:
+          $ref: '#/components/schemas/UserPreferences'
+
+    UserPreferences:
+      type: object
+      properties:
+        timezone:
+          type: string
+        notifications:
+          type: object
+          properties:
+            email:
+              type: boolean
+            in_app:
+              type: boolean
+        default_time_range:
+          type: string
+          enum: [today, yesterday, last_7_days, last_30_days, last_90_days]
+
+    UserUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        preferences:
+          $ref: '#/components/schemas/UserPreferences'
+
+    UsageAnalytics:
+      type: object
+      properties:
+        period:
+          type: object
+          properties:
+            from:
+              type: string
+              format: date
+            to:
+              type: string
+              format: date
+        metrics:
+          type: object
+          properties:
+            total_queries:
+              type: integer
+            unique_users:
+              type: integer
+            avg_response_time_ms:
+              type: number
+            query_success_rate:
+              type: number
+            top_query_types:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  count:
+                    type: integer
+        timeline:
+          type: array
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+              queries:
+                type: integer
+              users:
+                type: integer
+              avg_response_time_ms:
+                type: number
+
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy, degraded, unhealthy]
+        version:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        services:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              status:
+                type: string
+                enum: [healthy, degraded, unhealthy]
+              latency_ms:
+                type: integer
+
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error details
+        request_id:
+          type: string
+          description: Request ID for support
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "INVALID_REQUEST"
+            message: "The request body is invalid"
+            details:
+              field: "text"
+              reason: "Query text is required"
+
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "UNAUTHORIZED"
+            message: "Invalid or missing authentication token"
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "NOT_FOUND"
+            message: "The requested resource was not found"
+
+    RateLimited:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "RATE_LIMITED"
+            message: "Rate limit exceeded. Please try again later."
+            details:
+              limit: 100
+              remaining: 0
+              reset_at: "2024-06-24T12:00:00Z"
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "INTERNAL_ERROR"
+            message: "An unexpected error occurred"
+            request_id: "req_1234567890"

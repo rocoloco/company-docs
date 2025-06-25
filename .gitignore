@@ -1,0 +1,26 @@
+# Sensitive information
+*.env
+*.key
+**/secrets/
+**/confidential/
+
+# Personal notes and drafts
+**/drafts/
+**/personal/
+**/.obsidian/
+**/.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.pdf
+*.docx
+*.pptx
+
+# Except intentionally committed assets
+!assets/**/*.pdf
+!05-fundraising/pitch-materials/*.pdf

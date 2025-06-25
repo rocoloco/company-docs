@@ -1,0 +1,328 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: mobius-postgres
+    environment:
+      POSTGRES_USER: mobius
+      POSTGRES_PASSWORD: localdev123
+      POSTGRES_DB: mobius_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mobius"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: mobius-redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Elasticsearch for Logs
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+    container_name: mobius-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # Kibana for Log Visualization
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: mobius-kibana
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5601/api/status || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # Jaeger for Distributed Tracing
+  jaeger:
+    image: jaegertracing/all-in-one:1.46
+    container_name: mobius-jaeger
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: :9411
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"  # Jaeger UI
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:16686/ || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # KrakenD API Gateway
+  krakend:
+    image: devopsfaith/krakend:2.3
+    container_name: mobius-krakend
+    volumes:
+      - ./krakend:/etc/krakend
+    ports:
+      - "8080:8080"
+    command: ["run", "-d", "-c", "/etc/krakend/krakend.json"]
+    depends_on:
+      - mobius-api
+      - mobius-ai
+    environment:
+      FC_ENABLE: 1
+      FC_SETTINGS: "/etc/krakend/settings"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/__health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Mobius API Service
+  mobius-api:
+    build:
+      context: ../../mobius-api
+      dockerfile: Dockerfile.dev
+    container_name: mobius-api
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DATABASE_URL: postgresql://mobius:localdev123@postgres:5432/mobius_dev
+      REDIS_URL: redis://redis:6379
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      JAEGER_ENDPOINT: http://jaeger:14268/api/traces
+      SERVICE_NAME: mobius-api
+      LOG_LEVEL: debug
+    ports:
+      - "3000:3000"
+      - "9229:9229"  # Node.js debugger
+    volumes:
+      - ../../mobius-api:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      jaeger:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Mobius AI Service
+  mobius-ai:
+    build:
+      context: ../../mobius-ai
+      dockerfile: Dockerfile.dev
+    container_name: mobius-ai
+    environment:
+      PYTHONUNBUFFERED: 1
+      PORT: 8000
+      REDIS_URL: redis://redis:6379
+      JAEGER_ENDPOINT: http://jaeger:14268/api/traces
+      SERVICE_NAME: mobius-ai
+      LOG_LEVEL: debug
+      # AI Model Keys (add your own)
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../mobius-ai:/app
+      - /app/.venv
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    depends_on:
+      redis:
+        condition: service_healthy
+      jaeger:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Integration Service
+  integration-service:
+    build:
+      context: ../../mobius-api
+      dockerfile: Dockerfile.dev
+    container_name: mobius-integration-service
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      SERVICE_NAME: integration-service
+      DATABASE_URL: postgresql://mobius:localdev123@postgres:5432/mobius_dev
+      REDIS_URL: redis://redis:6379
+      MERGE_API_KEY: ${MERGE_API_KEY}
+      LOG_LEVEL: debug
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../../mobius-api:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev:integration"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3001/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Frontend Development Server
+  frontend:
+    build:
+      context: ../../mobius-frontend
+      dockerfile: Dockerfile.dev
+    container_name: mobius-frontend
+    environment:
+      NODE_ENV: development
+      VITE_API_URL: http://localhost:8080
+      VITE_WS_URL: ws://localhost:8080
+    ports:
+      - "5173:5173"  # Vite dev server
+    volumes:
+      - ../../mobius-frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev", "--", "--host"]
+    depends_on:
+      - krakend
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5173/ || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Prometheus for Metrics
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: mobius-prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    depends_on:
+      - mobius-api
+      - mobius-ai
+      - integration-service
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:9090/-/healthy || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Grafana for Dashboards
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: mobius-grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: false
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      prometheus:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # MinIO for S3-compatible storage (development)
+  minio:
+    image: minio/minio:latest
+    container_name: mobius-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"  # API
+      - "9001:9001"  # Console
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Mailhog for Email Testing
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mobius-mailhog
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    healthcheck:
+      test: ["CMD", "echo", "smtp test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+# Volumes for persistent data
+volumes:
+  postgres_data:
+  redis_data:
+  elasticsearch_data:
+  prometheus_data:
+  grafana_data:
+  minio_data:
+
+# Networks (using default bridge network for simplicity)
+networks:
+  default:
+    name: mobius-network
