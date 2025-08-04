@@ -44,17 +44,10 @@ By 2030, every growing SaaS company will run on autonomous finance operations, w
 - **Speed** over perfection
 
 **Legal Structure**
-Limited Liability Company (LLC), incorporated in Florida, 2024
+Limited Liability Company (LLC), incorporated in Florida, 2025
 
 **Location**
 Tampa, Florida (headquarters)
-
-**Florida Business Advantages**
-- No state income tax for business owners
-- Growing tech ecosystem in Tampa Bay
-- Lower operating costs vs. traditional tech hubs
-- Access to University of South Florida talent pipeline
-- Strategic location for East Coast customer base
 
 -----
 
@@ -124,7 +117,7 @@ Research shows:
 - **AI Matching Engine**: Multi-algorithm approach with confidence scoring
 - **Direct Integrations**: Plaid (banks), QuickBooks, NetSuite APIs
 - **Cloud Infrastructure**: AWS with real-time processing
-- **Security**: Bank-grade encryption, SOC 2 Type II compliant
+- **Security**: SOC 2 Type II compliant
 
 -----
 
@@ -217,19 +210,11 @@ Research shows:
 ### **Advisory Board**
 - CFOs from successful mid-market SaaS companies
 - AI/ML advisors with financial technology experience
-- Florida business leaders and investors
-- Go-to-market experts in B2B finance software
 
 ### **Hiring Plan**
 - **Year 1**: 8 employees (engineering-heavy, customer success)
 - **Year 2**: 18 employees (expand AI capabilities, sales)
 - **Year 3**: 32 employees (scale operations, expand geographically)
-
-**Florida Talent Advantages**:
-- University of South Florida: 50,000+ students, strong engineering programs
-- Growing tech scene: relocations from high-cost markets
-- Remote work acceptance: access to national talent pool
-- Lower cost of living: competitive salaries go further
 
 -----
 
@@ -252,10 +237,6 @@ Simple SaaS subscription with proven market fit at $497/month price point.
 
 ### **Florida Cost Advantages**
 
-**Operating Cost Comparison** (vs. San Francisco):
-- **Office Space**: $25/sq ft vs. $75/sq ft (67% savings)
-- **Developer Salaries**: $85K vs. $130K average (35% savings)
-- **Overall OpEx**: 40% lower while maintaining talent quality
 
 **Tax Benefits**:
 - No Florida state income tax for LLC members
