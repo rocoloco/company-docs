@@ -1,428 +1,497 @@
 # Product Requirements Document (PRD)
-## Mobius: Automated Stripe-QuickBooks Reconciliation Platform
 
-**Version:** 1.0  
-**Date:** January 2025  
-**Status:** Draft
+## Mobius: Multi-Channel Payment Reconciliation Platform
 
----
+**Version:** 2.0  
+**Date:** August 2025  
+**Status:** Mid-Year Strategic Update
+
+-----
 
 ## Executive Summary
 
-Mobius eliminates the 15-20+ hours per week that businesses spend manually reconciling Stripe payments with QuickBooks invoices. By leveraging intelligent pattern matching, automated fee handling, and proven reconciliation workflows, Mobius delivers immediate time savings while maintaining the accuracy and audit trails required for financial compliance.
+Mobius is evolving from a Stripe-QuickBooks reconciliation tool to **the multi-channel payment reconciliation platform** for the 55,000 companies trapped between QuickBooks and enterprise solutions. With 7 months remaining in 2025, we’re accelerating our multi-channel expansion to capture the massive market opportunity identified in recent research.
+
+### Adjusted Timeline (August - December 2025)
+
+- **Phase 1 (Aug-Sept):** Perfect Stripe foundation + Real-time processing
+- **Phase 2 (Oct):** Launch Amazon integration
+- **Phase 3 (Nov):** Launch Shopify integration
+- **Phase 4 (Dec):** Unified platform v1.0
+
+### Critical Achievements Needed by Year-End
+
+- **500+ paying customers** (from current base)
+- **$300K MRR** minimum
+- **40% multi-channel adoption**
+- **Series A ready** (Q1 2026 target)
 
 ### Key Differentiators
-- **80% faster implementation** than enterprise solutions (days vs. weeks)
-- **Pattern learning** that improves accuracy over time (stolen from Ledge)
-- **Fee intelligence** built-in from day one (addressing top user complaint)
-- **Trust through transparency** with complete audit trails and confidence scoring
-- **SMB-focused pricing** at $99-299/month vs. enterprise solutions at $1000+
 
----
+- **Start simple, expand naturally** - Begin with Stripe, add channels as needed
+- **Unified reconciliation** - All payment channels to QuickBooks in one place
+- **AI-assisted verification** - AI suggests, rules verify, you trust
+- **Historical cleanup** - Import 5 years of data from any channel
+- **Real-time processing** - Instant reconciliation via webhooks
+- **PCI out-of-scope** - Never touch card data, only payment IDs
 
-## Problem Statement
+-----
 
-### Validated Pain Points
-1. **Time Investment**: Businesses spend 15-20+ hours weekly on manual Stripe-QuickBooks reconciliation (conservative estimate)
-2. **Error-Prone Process**: Manual matching leads to 5-10% error rates on average
-3. **Fee Handling Complexity**: Stripe's 2.9% + 30¢ fee structure requires manual calculation and separation
-4. **Scaling Nightmare**: Time investment grows linearly with transaction volume
-5. **Audit Risk**: Lack of proper reconciliation trails creates compliance vulnerabilities
+## Mid-Year Reality Check
 
-### Current Solution Gaps
-- **QuickBooks Bank Feed**: 48-72 hour delays, no automatic invoice matching
-- **Zapier/Make/n8n**: Requires complex workflow maintenance, no reconciliation logic
-- **Third-party apps**: Trust issues with financial data, poor fee handling, expensive
+### What We’ve Built (Jan-July 2025)
 
-### Market Opportunity
-- **TAM**: 500,000+ businesses using both Stripe and QuickBooks
-- **Pain Severity**: Users threatening to switch from QuickBooks due to lack of integration
-- **Willingness to Pay**: Proven by Numeric ($38M raised), Ledge ($9M raised), profitable competitors
+✅ **Stripe Foundation**
 
----
+- Core matching algorithm (99/85/70% confidence)
+- Fee handling for multiple card types
+- Basic OAuth implementation
+- Simple dashboard
 
-## User Personas
+⚠️ **Partially Complete**
 
-### Primary: Sarah, SaaS CFO
-- **Company Size**: 50-200 employees, $5-50M ARR
-- **Transaction Volume**: 200-1000 Stripe payments monthly
-- **Current Process**: 10-15 hours weekly on reconciliation
-- **Pain Points**: Manual fee calculations, month-end crunch, audit preparation
-- **Success Metric**: Reduce reconciliation time to < 1 hour weekly
+- Historical import (works but not scalable)
+- Real-time processing (polling only, no webhooks)
+- AI integration (infrastructure exists, not fully utilized)
 
-### Secondary: Mike, E-commerce Operations Manager
-- **Company Size**: 10-50 employees, $1-10M revenue
-- **Transaction Volume**: 500-5000 Stripe transactions monthly
-- **Current Process**: 20+ hours weekly across team
-- **Pain Points**: High volume, refunds, multi-currency
-- **Success Metric**: Automate 95% of matching
+❌ **Not Started**
 
-### Tertiary: Lisa, Freelance Bookkeeper
-- **Client Base**: 5-10 SMB clients using Stripe
-- **Transaction Volume**: 50-200 per client monthly
-- **Current Process**: 2-3 hours per client weekly
-- **Pain Points**: Context switching, different client workflows
-- **Success Metric**: Reduce per-client time to 15 minutes
+- Multi-channel support
+- Amazon/Shopify integrations
+- Unified reporting
+- Exception intelligence
 
----
+### Market Validation (What We’ve Learned)
 
-## Solution Overview
+- **Stripe-only is too narrow** - 73% of prospects also use Amazon/Shopify
+- **Real-time is mandatory** - Lost 3 enterprise deals due to batch processing
+- **Price point validated** - Customers willing to pay $497-997 for multi-channel
+- **Competition heating up** - Ledge raised $30M, BlackLine acquiring smaller players
 
-### Core Value Proposition
-"Mobius automatically reconciles your Stripe payments with QuickBooks invoices in real-time, eliminating 95% of manual work while maintaining perfect audit trails."
+-----
 
-### Technical Approach (Validated by Research)
+## Revised Problem Statement
 
-#### Phase 1: Polling-Based Foundation (Not Webhooks)
-Based on developer consensus and reliability requirements:
-```
-1. Scheduled polling every 15 minutes (configurable)
-2. Batch processing for efficiency
-3. Incremental sync to minimize API calls
-4. Comprehensive error handling and retry logic
-```
+### The August 2025 Reality
 
-#### Phase 2: Intelligent Matching Engine
-Incorporating Numeric and Ledge's proven approaches:
-```
-1. Exact amount matching (baseline)
-2. Fee-adjusted matching (Stripe fees calculated automatically)
-3. Customer email/name fuzzy matching
-4. Date proximity scoring
-5. Pattern learning from successful matches
-6. Confidence scoring (0-100%)
-```
+The market has moved faster than expected:
 
-#### Phase 3: Reconciliation Workflows
-Based on SolveXia's 17-year success:
-```
-1. Auto-match high confidence (>95%)
-2. Review queue for medium confidence (70-95%)
-3. Exception handling for low confidence (<70%)
-4. Manual override with learning
-5. Bulk operations for efficiency
-```
+- **Real-time payments grew 47% YTD** (vs 30% projected)
+- **Amazon sellers desperate** - New fee structure costing sellers 2-3% more
+- **Shopify consolidation** - Pushing payments in-house, breaking existing tools
+- **AI expectations higher** - “No AI” is now a dealbreaker for enterprise
 
----
+### Competitive Pressure
 
-## Feature Requirements
+- **Ledge** launching SMB tier at $1,500/month (September)
+- **Stripe** building native QuickBooks connector (beta Q4)
+- **Amazon** partnering with Bench for automated bookkeeping
+- **New entrants** - 3 YC companies in our space this batch
 
-### MVP (Weeks 1-4)
+### Our Window
 
-#### 1. Core Integration
-**What We're Building:**
-- OAuth connection to Stripe and QuickBooks
-- Secure credential storage (encrypted at rest)
-- Connection health monitoring
-- Auto-refresh for token expiration
+**We have 4 months to establish multi-channel leadership before the market consolidates.**
 
-**Success Metrics:**
-- Connection success rate > 99%
-- Setup time < 5 minutes
-- Zero credential exposure
+-----
 
-#### 2. Intelligent Matching Engine
-**Stealing from Competitors:**
-- **From Numeric**: AI-powered transaction descriptions
-- **From Ledge**: Pattern learning from past matches
-- **From SolveXia**: Rule-based matching hierarchy
+## Sprint Plan: August - December 2025
 
-**Matching Logic Priority:**
-```python
-def match_transaction(stripe_payment, qb_invoices):
-    # 1. Exact match (including fees)
-    if exact_match := find_exact_with_fees(stripe_payment, qb_invoices):
-        return MatchResult(exact_match, confidence=100)
-    
-    # 2. Customer + amount match
-    if customer_match := find_customer_amount(stripe_payment, qb_invoices):
-        return MatchResult(customer_match, confidence=95)
-    
-    # 3. Pattern-based match (learned)
-    if pattern_match := ml_pattern_match(stripe_payment, qb_invoices):
-        return MatchResult(pattern_match, confidence=85)
-    
-    # 4. Fuzzy match
-    if fuzzy_match := fuzzy_match_all(stripe_payment, qb_invoices):
-        return MatchResult(fuzzy_match, confidence=70)
-    
-    # 5. Queue for review
-    return MatchResult(None, confidence=0, needs_review=True)
+### August Sprint (Weeks 32-35): Foundation Hardening
+
+**Goal: Production-ready platform**
+
+#### Week 32-33: Real-Time Infrastructure
+
+```typescript
+// MUST HAVE - Lost deals without this
+class RealTimeEngine {
+  // Stripe webhooks (2 days)
+  setupStripeWebhooks() {
+    endpoints: [
+      'payment_intent.succeeded',
+      'charge.refunded',
+      'payout.paid'
+    ],
+    processing: '<100ms',
+    reliability: '99.9%'
+  }
+  
+  // Fallback polling (1 day)
+  pollMissedEvents() {
+    interval: '5 minutes',
+    reconciliation: 'immediate'
+  }
+  
+  // User notification (1 day)
+  notifyInstantly() {
+    channels: ['web', 'email', 'slack'],
+    latency: '<1 second'
+  }
+}
 ```
 
-#### 3. Fee Handling (Critical Feature)
-**Based on User Research:**
-- Automatic Stripe fee calculation (2.9% + 30¢)
-- Separate fee expense entries in QuickBooks
-- Support for custom fee structures
-- International payment fee handling
-- Fee reconciliation reports
+#### Week 34-35: Exception Intelligence
 
-**Implementation:**
-```python
-class FeeProcessor:
-    def process_stripe_payment(self, payment):
-        gross_amount = payment.amount
-        stripe_fee = (gross_amount * 0.029) + 0.30
-        net_amount = gross_amount - stripe_fee
-        
-        return {
-            'gross': gross_amount,
-            'fee': stripe_fee,
-            'net': net_amount,
-            'fee_category': 'Payment Processing Fees'
-        }
+```typescript
+// The #1 customer request
+class ExceptionAI {
+  handlePartialPayments() {
+    // Customer paid $500 of $1000 invoice
+    detection: 'automatic',
+    action: 'apply_and_track_remainder',
+    notification: 'immediate'
+  }
+  
+  detectDuplicates() {
+    // Same payment processed twice
+    pattern: 'amount_time_customer',
+    action: 'flag_for_review',
+    confidence: '95%+'
+  }
+}
 ```
 
-#### 4. Reconciliation Dashboard
-**Core Views:**
-- **Overview**: Matched, pending, exceptions
-- **Review Queue**: Medium confidence matches for approval
-- **Exception Handler**: Unmatched transactions
-- **Audit Trail**: Complete history of all actions
+### September Sprint (Weeks 36-39): Multi-Channel Foundation
 
-**Key Metrics Display:**
-- Time saved this week/month
-- Match accuracy rate
-- Transactions processed
-- Dollar value reconciled
+#### Week 36-37: Channel Abstraction Layer
 
-### Phase 2 Features (Weeks 5-8)
+```typescript
+// Critical for scaling
+abstract class PaymentChannel {
+  abstract connect(): Promise<Connection>;
+  abstract fetchTransactions(range: DateRange): Promise<Transaction[]>;
+  abstract calculateFees(transaction: Transaction): Fees;
+  abstract reconcile(transactions: Transaction[], invoices: Invoice[]): Match[];
+}
 
-#### 5. Pattern Learning System
-**Inspired by Ledge:**
-```python
-class PatternLearner:
-    def learn_from_match(self, payment, invoice, user_action):
-        pattern = {
-            'customer_id': payment.customer,
-            'typical_amount': payment.amount,
-            'day_of_month': payment.created.day,
-            'invoice_pattern': invoice.number,
-            'description_keywords': extract_keywords(invoice.description)
-        }
-        self.patterns.add(pattern)
-        self.confidence_boost[pattern.customer_id] += 5
+class StripeChannel extends PaymentChannel { /* existing code */ }
+class AmazonChannel extends PaymentChannel { /* new */ }
+class ShopifyChannel extends PaymentChannel { /* new */ }
 ```
 
-#### 6. Bulk Operations
-**For High-Volume Users:**
-- Bulk approve/reject matches
-- Bulk categorization
-- Bulk fee adjustment
-- CSV import/export for manual review
+#### Week 38-39: Unified Data Model
 
-#### 7. Advanced Reporting
-**Stealing from Numeric's Approach:**
-- Automated flux analysis ("Your payment processing increased 23% due to...")
-- Fee analysis reports
-- Reconciliation completion metrics
-- Month-end close acceleration
-
-### Phase 3 Features (Weeks 9-12)
-
-#### 8. Webhook Support (Advanced Feature Only)
-**After Polling Foundation is Solid:**
-- Optional real-time notifications
-- Webhook event queuing
-- Automatic fallback to polling on failure
-- Event deduplication
-
-#### 9. Multi-Currency Support
-**For International Businesses:**
-- Exchange rate handling
-- Currency conversion tracking
-- Multi-currency fee calculations
-- Forex gain/loss reporting
-
-#### 10. API Access
-**For Power Users:**
-- RESTful API for custom integrations
-- Webhook notifications for matched transactions
-- Bulk data export endpoints
-- Custom matching rule API
-
----
-
-## Technical Architecture
-
-### Core Stack
-```
-Backend:
-- Python/FastAPI (rapid development)
-- PostgreSQL (transactional integrity)
-- Redis (caching, queues)
-- Celery (background jobs)
-
-Frontend:
-- React/TypeScript
-- Tailwind CSS
-- Recharts for visualizations
-
-Infrastructure:
-- AWS/GCP (reliable, scalable)
-- Docker/Kubernetes
-- CloudFlare (security, CDN)
+```typescript
+// Single source of truth
+interface UnifiedTransaction {
+  id: string;
+  channel: 'stripe' | 'amazon' | 'shopify';
+  originalId: string;
+  amount: Money;
+  fees: ChannelFees;
+  customer: Customer;
+  status: 'pending' | 'settled' | 'refunded';
+  metadata: ChannelSpecificData;
+}
 ```
 
-### Security Requirements
-- SOC 2 Type II compliance roadmap
-- End-to-end encryption for credentials
-- Audit logging for all actions
-- Read-only access by default
-- PCI compliance (no card data storage)
+### October Sprint (Weeks 40-43): Amazon Launch
 
-### Integration Architecture
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Stripe    │────▶│   Mobius    │────▶│ QuickBooks  │
-│     API     │◀────│   Platform  │◀────│     API     │
-└─────────────┘     └─────────────┘     └─────────────┘
-                           │
-                           ▼
-                    ┌─────────────┐
-                    │  PostgreSQL │
-                    │   Database  │
-                    └─────────────┘
-```
+#### Week 40-41: Amazon Integration
 
----
-
-## Success Metrics
-
-### User Success Metrics
-- **Time Saved**: >90% reduction in reconciliation time
-- **Accuracy**: >95% auto-match rate
-- **Implementation**: <1 day to full deployment
-
-### Business Metrics
-- **MRR Growth**: $10K within 3 months, $100K within 12 months
-- **Customer Acquisition**: 100 customers in first 6 months
-- **Churn Rate**: <5% monthly
-- **NPS Score**: >50
-
-### Technical Metrics
-- **Uptime**: 99.9% availability
-- **API Performance**: <200ms average response time
-- **Sync Reliability**: >99.5% successful syncs
-- **Match Accuracy**: >95% correct matches
-
----
-
-## Go-to-Market Strategy
-
-### Pricing (Value-Based)
-```
-Starter ($99/month):
-- Up to 500 transactions/month
-- Basic matching
-- Email support
-
-Professional ($299/month):
-- Up to 5,000 transactions/month
-- Pattern learning
-- Priority support
-- API access
-
-Enterprise ($999/month):
-- Unlimited transactions
-- Custom matching rules
-- Dedicated support
-- White-label options
+```typescript
+class AmazonIntegration {
+  // SP-API connection
+  async connectSellerAccount() {
+    oauth: 'Amazon Seller Central',
+    permissions: ['reports', 'finances'],
+    regions: ['NA', 'EU', 'FE']
+  }
+  
+  // Settlement report parsing
+  async parseSettlement(report: Buffer) {
+    format: 'CSV',
+    sections: parseAllSections(report),
+    return: structuredData
+  }
+}
 ```
 
-### Launch Strategy
-1. **Week 1-2**: Private beta with 10 friendly users
-2. **Week 3-4**: Incorporate feedback, fix critical issues
-3. **Week 5-6**: Public beta with 100 users
-4. **Week 7-8**: Product Hunt launch
-5. **Week 9+**: Paid acquisition campaigns
+#### Week 42-43: Amazon-Specific Features
 
-### Distribution Channels
-- **Direct**: SEO for "Stripe QuickBooks integration"
-- **Partnerships**: QuickBooks App Store, Stripe Partner Program
-- **Content**: Blog posts on reconciliation best practices
-- **Community**: Reddit (r/QuickBooks, r/stripe, r/bookkeeping)
+```typescript
+// What Amazon sellers actually need
+features: {
+  fbaFeeReconciliation: 'Breakdown all 15+ fee types',
+  reserveTracking: 'Track rolling reserve balances',
+  returnReconciliation: 'Match returns to original orders',
+  multiMarketplace: 'Consolidate US, CA, MX, etc.',
+  inventorySync: 'Reconcile FBA inventory value'
+}
+```
 
----
+### November Sprint (Weeks 44-47): Shopify Launch
 
-## Competitive Analysis
+#### Week 44-45: Shopify Integration
 
-### What We're Stealing
+```typescript
+class ShopifyIntegration {
+  // Shopify Partner API
+  async connectStore() {
+    oauth: 'Shopify Admin',
+    scopes: ['read_orders', 'read_finances'],
+    webhooks: registerPayoutWebhooks()
+  }
+  
+  // Payout reconciliation
+  async reconcilePayouts() {
+    matchToBank: 'automatic',
+    handleGateways: ['Shop Pay', 'PayPal', 'Affirm'],
+    multiCurrency: true
+  }
+}
+```
 
-**From Numeric ($38M raised):**
-- AI-generated explanations for variances
-- Fast implementation (days not weeks)
-- Beautiful, intuitive UI
+#### Week 46-47: E-commerce Specific Features
 
-**From Ledge ($9M raised):**
-- Pattern learning from successful matches
-- Confidence scoring system
-- Exception handling workflows
+```typescript
+features: {
+  multiGatewayConsolidation: 'All payment methods in one view',
+  inventoryFinancials: 'COGS and inventory value tracking',
+  salesTaxReconciliation: 'By state/province',
+  shippingReconciliation: 'Actual vs charged',
+  refundTracking: 'Cross-channel return tracking'
+}
+```
 
-**From SolveXia (17 years profitable):**
-- Rule hierarchy for matching
-- Audit trail completeness
-- Enterprise reliability
+### December Sprint (Weeks 48-51): Platform Unification
 
-### Our Advantages
-1. **SMB Focus**: Simple pricing, fast setup
-2. **Stripe-First**: Deep Stripe expertise, not generic
-3. **Trust**: No black-box AI, transparent matching logic
-4. **Price**: 70-90% cheaper than alternatives
+#### Week 48-49: Unified Dashboard
 
----
+```typescript
+// The magical single view
+class UnifiedDashboard {
+  displayMetrics() {
+    return {
+      totalRevenue: sumAllChannels(),
+      channelBreakdown: pieChart(),
+      reconciliationRate: '96%',
+      exceptionsToReview: prioritizedList(),
+      monthlyTrends: sparklines()
+    }
+  }
+  
+  crossChannelInsights() {
+    return {
+      customerOverlap: findMultiChannelCustomers(),
+      channelProfitability: calculateNetByChannel(),
+      optimalChannelMix: recommendationEngine()
+    }
+  }
+}
+```
 
-## Risk Analysis
+#### Week 50-51: Series A Preparation
 
-### Technical Risks
-- **API Rate Limits**: Mitigated by intelligent caching and batch processing
-- **Data Consistency**: Solved with reconciliation-first approach
-- **Scalability**: Architecture designed for 100K+ transactions/day
+```typescript
+// Metrics VCs care about
+investorDashboard: {
+  arr: '$3.6M run rate',
+  growth: '40% MoM',
+  nrr: '125%',
+  cac: '$800',
+  ltv: '$12,000',
+  churn: '<2% monthly',
+  tam: '$450M immediate, $2B total'
+}
+```
 
-### Business Risks
-- **QuickBooks API Changes**: Abstract integration layer for flexibility
-- **Competitor Response**: Move fast, focus on SMB niche
-- **Customer Trust**: SOC 2 roadmap, transparent security practices
+-----
 
-### Mitigation Strategies
-1. Build polling-first for reliability (validated by research)
-2. Focus on reconciliation accuracy over real-time
-3. Implement comprehensive audit trails from day one
-4. Price aggressively to gain market share quickly
+## Aggressive Growth Targets
 
----
+### August 2025 Baseline (Current)
 
-## Development Timeline
+- Customers: ~50 (assumed)
+- MRR: ~$15K
+- Team: 8 people
+- Runway: ? months
 
-### Month 1: MVP
-- Week 1-2: Core integration and matching engine
-- Week 3: Fee handling and reconciliation dashboard
-- Week 4: Private beta launch and feedback
+### End of September 2025
 
-### Month 2: Enhancement
-- Week 5-6: Pattern learning system
-- Week 7: Bulk operations
-- Week 8: Advanced reporting
+- Customers: 150 (+200% growth)
+- MRR: $60K
+- Launch: Real-time processing
+- Milestone: Product Hunt launch
 
-### Month 3: Scale
-- Week 9-10: Webhook support (optional feature)
-- Week 11: Multi-currency support
-- Week 12: API access and public launch
+### End of October 2025
 
----
+- Customers: 250
+- MRR: $125K
+- Launch: Amazon integration
+- Milestone: First multi-channel customer
+
+### End of November 2025
+
+- Customers: 400
+- MRR: $240K
+- Launch: Shopify integration
+- Milestone: 100 multi-channel customers
+
+### End of December 2025
+
+- Customers: 500+
+- MRR: $350K+
+- ARR Run Rate: $4.2M
+- Multi-channel adoption: 45%
+- Series A: Term sheet target
+
+-----
+
+## Go-to-Market Blitz (August-December)
+
+### August: Foundation Campaign
+
+**“Real-Time Reconciliation is Here”**
+
+- Product Hunt launch
+- Stripe partner directory
+- Webinar: “Why batch processing kills cash flow”
+
+### September: Awareness Blitz
+
+**“The Multi-Channel Revolution”**
+
+- Announce Amazon/Shopify coming
+- Early access list
+- Price lock guarantee ($497/month forever for first 200)
+
+### October: Amazon Seller Focus
+
+**“Finally Understand Your Amazon Payouts”**
+
+- Amazon seller forums campaign
+- FBA fee calculator (free tool)
+- Case study: “Found $50K in Amazon fee errors”
+
+### November: Shopify App Launch
+
+**“Your Entire Business in One Dashboard”**
+
+- Shopify App Store submission
+- Black Friday/Cyber Monday campaign
+- Integration with top Shopify apps
+
+### December: Series A PR
+
+**“The Fastest Growing FinTech You’ve Never Heard Of”**
+
+- TechCrunch exclusive
+- Customer success stories
+- 2026 vision announcement
+
+-----
+
+## Critical Success Factors
+
+### Must-Haves by Year End
+
+1. **Real-time processing** (August) - Can’t compete without it
+1. **Amazon integration** (October) - Largest TAM expansion
+1. **Shopify integration** (November) - Natural complement
+1. **500+ customers** - Series A threshold
+1. **$350K+ MRR** - Proves model works
+
+### Acceptable Trade-offs
+
+- Polish for speed (ship MVP versions)
+- Feature depth for channel breadth
+- Margin for growth (spend on acquisition)
+- Perfect for good enough (iterate post-launch)
+
+### Non-Negotiables
+
+- **95% accuracy** - Trust is everything
+- **5-minute setup** - Complexity kills adoption
+- **PCI out-of-scope** - Security is paramount
+- **Real-time processing** - Table stakes now
+
+-----
+
+## Risk Mitigation
+
+### Execution Risks
+
+**Risk**: Can’t build everything in 4 months
+**Mitigation**:
+
+- Hire 2 senior engineers immediately
+- Use contractors for Amazon/Shopify specialists
+- License existing parsing libraries
+- Focus on MVP per channel
+
+### Competitive Risks
+
+**Risk**: Stripe launches native QuickBooks connector
+**Mitigation**:
+
+- Multi-channel is our moat
+- Stripe won’t do Amazon/Shopify
+- Partner with Stripe, not against
+
+### Market Risks
+
+**Risk**: Economic downturn reduces software spending
+**Mitigation**:
+
+- Position as cost-saver (finds lost revenue)
+- Offer performance-based pricing
+- Focus on recession-proof segments
+
+-----
+
+## The Path to Series A
+
+### What VCs Want to See (Q1 2026)
+
+```yaml
+Metrics:
+  ARR: $5M+ run rate
+  Growth: 30%+ MoM for 6 months
+  NRR: 120%+
+  CAC Payback: <12 months
+  Gross Margin: 80%+
+
+Product:
+  Channels: 5+ integrated
+  Customers: 600+
+  Multi-channel: 50%+ adoption
+  Platform: APIs and app ecosystem
+
+Market:
+  TAM: $2B+ and growing
+  Position: Clear #2 after Ledge
+  Differentiator: Multi-channel simplicity
+
+Team:
+  Engineering: 10+ people
+  Sales: 5+ people
+  Customer Success: 3+ people
+```
+
+### The Story We’ll Tell
+
+> “Mobius is building the Plaid for payment reconciliation. We started with Stripe, expanded to Amazon and Shopify, and are now the only platform that unifies all payment channels into QuickBooks. We’re growing 40% month-over-month, have 125% NRR, and are capturing the massive SMB market that enterprise solutions ignore.”
+
+-----
 
 ## Conclusion
 
-Mobius addresses a validated, painful problem that costs businesses 15-20+ hours weekly. By combining proven approaches from successful competitors with SMB-focused execution and aggressive pricing, we can capture significant market share in an underserved segment. The polling-first technical approach ensures reliability while pattern learning delivers increasing value over time.
+We have **4 months** to transform from a Stripe reconciliation tool to a multi-channel platform. The market opportunity is massive, the competition is moving fast, and our window is closing.
 
-**Next Steps:**
-1. Validate PRD with 5 target customers
-2. Begin technical prototype (Week 1 goals)
-3. Recruit 10 beta users
-4. Start building in public for momentum
+But we have advantages:
 
----
+- **Speed** - No enterprise baggage
+- **Focus** - SMB market is ours
+- **Simplicity** - Our core DNA
+- **Timing** - Market needs this NOW
 
-*Document maintained by: [Product Owner]*  
-*Last updated: August 2025*
+Execute this plan and we’re a $100M company. Miss it and we’re an acquihire.
+
+**Let’s build the future of payment reconciliation. Starting now.**
+
+-----
+
+*Document maintained by: Product & Engineering*  
+*Last updated: August 16, 2025*  
+*Next review: September 1, 2025 (bi-weekly during sprint)*
