@@ -1,8 +1,6 @@
-# **Mobius 1: Revenue Recovery Platform**
+# **Mobius 1: Bank Reconciliation That Pays For Itself**
 
 ## **Business Plan 2025**
-
-### **Mid-Year Strategic Update**
 
 -----
 
@@ -10,672 +8,459 @@
 
 ### **Company Overview**
 
-Mobius 1 is a financial technology company that helps businesses recover the 3-5% of revenue they’re losing through payment blind spots. We don’t just reconcile payments—we find hidden fees, failed payments, duplicate charges, and fraud across Stripe, Amazon, and Shopify. Founded in 2025 and headquartered in Tampa, Florida, we’ve discovered that 84% of companies using manual reconciliation are bleeding money they don’t even know about.
+Mobius automates bank reconciliation for SMBs, turning the monthly 20+ hour nightmare into a 5-minute process. We start with your bank statements, automatically match every deposit to its payment source (Stripe, Amazon, Shopify), and sync everything to QuickBooks. 
 
-### **Problem Statement**
+### **The Problem**
 
-Our research reveals a brutal truth: businesses lose 3-5% of revenue through financial blind spots, but think it’s just “the cost of doing business.” The average e-commerce company loses money to:
+SMB finance teams waste **20-30 hours monthly** manually reconciling bank deposits to payment processors. The process involves seven painful steps: downloading reports, matching transactions, separating fees, investigating discrepancies, creating adjustments, maintaining audit trails, and performing month-end verification.
 
-- **0.8-1.8%** from reconciliation errors alone
-- **3.4%** from payment fraud they don’t catch
-- **5-9%** from failed payments never recovered (SaaS)
-- **$101B annually** from return fraud (retail)
-- **15+ hidden fee types** on Amazon settlements
+**The hidden truth:** During this manual process, they’re missing thousands in recoverable fees, but they’re too exhausted from reconciliation to pursue them.
 
-The “missing middle” market—55,000 companies between QuickBooks and BlackLine—loses **5-7 full days monthly** searching for discrepancies after the money is already gone.
+### **Our Solution: Bank-First Reconciliation**
 
-### **Solution**
+Mobius flips the traditional approach. Instead of starting with payment processors, we start with your bank, where the money actually is. Our platform:
 
-Mobius 1 is a revenue recovery platform that automatically finds and recovers lost money across all payment channels. We scan historical transactions (up to 5 years), identify overcharges and errors, file recovery claims automatically, and prevent future losses through real-time monitoring. Our platform has already found an average of **$47,000 per customer** in year one.
+1. **Pulls bank deposits** via Plaid (read-only, secure)
+1. **Matches deposits** to Stripe/Amazon/Shopify payouts automatically
+1. **Breaks down payouts** into individual transactions
+1. **Syncs to QuickBooks** with fees properly separated
+1. **Finds recoverable money** as a delightful bonus
+
+**Result:** 5-minute reconciliation
 
 ### **Market Opportunity**
 
-The global payment reconciliation market ($3.2B) is really a revenue recovery opportunity:
+The bank reconciliation market is massive and underserved:
 
-- **Immediate Addressable Market**: 55,000 companies × $47,000 average recovery = **$2.6B in recoverable revenue**
-- **Our Revenue Opportunity**: $8,364 average customer value × 55,000 = **$460M potential**
-- **Expansion Market**: 500,000+ multi-channel businesses globally
-- **Growing Problem**: E-commerce fraud alone reaching $100B by 2029
+- **55,000 SMBs** stuck between QuickBooks and BlackLine
+- **$460M immediate TAM** (55,000 × $8,364 annual value)
+- **20-30 hours monthly** wasted on manual reconciliation
+- **Growing urgency:** Payment complexity increasing yearly
 
 ### **Competitive Advantages**
 
-- **We Find Money, Others Find Matches**: Only platform focused on revenue recovery vs. reconciliation
-- **SMB-Friendly Pricing**: Predictable monthly tiers, no percentage fees that SMBs hate
-- **Network Intelligence**: Every pattern we find for one customer helps all customers
-- **Immediate ROI**: Average customer sees money recovered in first 7 days
-- **No Risk**: 30-day money-back guarantee if we don’t find 3x the subscription cost
+- **Reconciliation tool that finds money** - Others just match transactions
+- **Bank-first approach** - Start where CFOs actually start (bank statements)
+- **Predictable pricing** - No percentage fees that SMBs hate
+- **Network intelligence** - Every reconciliation teaches our system new patterns
 
-### **Financial Highlights (Revised August 2025)**
+### **Financial Projections (Revised)**
 
-- **Current**: ~$15K MRR, ~50 customers, ~$75K recovered for customers
-- **Year-End 2025**: $350K MRR, 500 customers, $10M+ recovered
-- **2026 Target**: $1.7M MRR, 2,000 customers, $100M recovered
-- **2027 Target**: $5M MRR, 6,000 customers, $500M recovered
-- **Customer Economics**: $500 CAC, $697 average monthly price
-- **LTV:CAC Ratio**: 7:1 (36-month LTV of $3,500)
-- **Payback Period**: <1 month
-
-### **Funding Request**
-
-Seeking $3M Series A (Q1 2026) to scale revenue recovery capabilities, expand to 10+ payment platforms, and build the intelligence network that makes finding money automatic. Expected 10x revenue multiple at Series B based on network effects and 85% gross margins.
+- **Current:** 0 customers (launching September 2025)
+- **March 2025:** 50 customers, $100K MRR
+- **December 2026:** 500 customers
+- **December 2027:** 2,000 customers
 
 -----
 
-## **Company Description**
+## **Problem Validation**
 
-### **Mission Statement**
+### **The 20-Hour Reality**
 
-To turn every business’s financial blind spots into recovered revenue, ensuring no dollar is lost to payment complexity.
+Independent research reveals the true scope of reconciliation pain:
 
-### **Vision Statement**
+- **Small businesses:** 6-10 hours weekly on reconciliation
+- **Medium businesses:** 10-20 hours weekly
+- **High-transaction businesses:** 20+ hours weekly
+- **UK payment industry data:** 1,300 hours annually just on data prep
 
-To become the financial immune system for global commerce, automatically protecting and recovering revenue across every payment channel.
+**One QuickBooks user’s testimony:** “5,000 Stripe transactions for the year… this is not a workable solution.”
 
-### **Company History and Current Status**
+### **The Seven Circles of Reconciliation Hell**
 
-Mobius 1 was founded in January 2025 when our founding team discovered their previous e-commerce company had been overcharged $180,000 in Amazon fees over two years. After recovering the money, they realized every multi-channel business faces the same problem—but SMBs can’t afford enterprise solutions or tolerate percentage-based pricing.
+Manual reconciliation isn’t just matching—it’s a seven-step nightmare:
 
-**Current Status (August 2025):**
+1. **Download reports** from multiple systems
+1. **Match transactions** one by one
+1. **Separate gross from fees** for proper categorization
+1. **Investigate discrepancies** between expected and actual
+1. **Create adjustment entries** for differences
+1. **Maintain audit trails** for compliance
+1. **Perform month-end verification** and close
 
-- Revenue recovery engine operational for Stripe
-- 50 beta customers averaging $1,500 in monthly recoveries
-- Testing predictable pricing tiers that SMBs love
-- 4 months to capture market before competition adapts
-- Platform available at Mobius1.io
+**Each step compounds complexity.** Miss one transaction in step 2, and you’re hunting for it in step 7.
 
-### **Legal Structure**
+### **Why Existing Solutions Fail**
 
-- **Entity Type**: Delaware C-Corporation
-- **Headquarters**: Tampa, Florida
-- **Founded**: January 2025
-- **Employees**: 8 (current), scaling to 25 by year-end
-
------
-
-## **Market Analysis**
-
-### **Industry Overview - The Hidden Revenue Crisis**
-
-The payment landscape in 2025 has created a perfect storm of revenue leakage:
-
-- **Multi-Channel Chaos**: Average business uses 3.2 payment processors, each hiding different fees
-- **Manual Blindness**: 84% still use Excel, creating 0.8-1.8% error rates
-- **Fraud Explosion**: E-commerce fraud hitting $44.3B globally, growing to $100B by 2029
-- **SMB Pricing Sensitivity**: 50%+ prefer month-to-month pricing, hate percentage fees
-- **Budget Constraints**: 37% cite inflation as biggest challenge, cutting tech spend 25%
-
-**The Real Insight**: SMBs know they’re losing money but need predictable costs to fix it. Percentage-based pricing is a non-starter—they already hate Stripe’s 2.9% fees.
-
-### **Target Market (Refined)**
-
-#### **Primary Target: Multi-Channel E-commerce SMBs** (Immediate)
-
-- **Company Profile**: Selling on website + Amazon + Shopify
-- **Size**: $5-50M revenue, 10-200 employees
-- **Current Loss**: 3-5% of revenue ($150K-$2.5M annually)
-- **Pain Points**:
-  - “We’re already paying Stripe 2.9%, not paying more percentages”
-  - “Need predictable monthly costs for budgeting”
-  - “Found out Amazon overcharged us for 2 years”
-- **Budget Reality**: Will pay $300-1,500/month for clear value
-- **Buying Trigger**: Discovered a major overcharge, margin pressure
-
-#### **Secondary Target: Growing SaaS Companies** (Expand)
-
-- **Company Profile**: B2B SaaS with subscription billing
-- **Size**: $2-20M ARR, 20-100 employees
-- **Current Loss**: 5-9% from failed payments
-- **Pain Points**:
-  - “Cards failing silently, losing MRR”
-  - “Can’t afford BlackLine at $6,400/month”
-  - “Need to reduce involuntary churn”
-- **Budget Reality**: $500-1,500/month for tools that save MRR
-- **Buying Trigger**: High involuntary churn, investor pressure on unit economics
-
-#### **Tertiary Target: Amazon FBA Sellers** (Scale)
-
-- **Company Profile**: Professional Amazon sellers
-- **Size**: $1-10M revenue, 5-50 employees
-- **Current Loss**: 2-3% in fee errors
-- **Pain Points**:
-  - “15+ Amazon fee types we can’t track”
-  - “Settlement reports are incomprehensible”
-  - “Margins getting crushed by fee increases”
-- **Budget Reality**: $200-800/month maximum
-- **Buying Trigger**: Amazon fee increases, margin compression
-
-### **Total Addressable Market (TAM) - SMB Focused**
-
-**Immediate Market (Missing Middle):**
-
-- 55,000 companies between QuickBooks and enterprise
-- Average customer value: $8,364/year ($697/month)
-- **Immediate TAM: $460M**
-
-**Expanded SMB Market:**
-
-- 500,000+ SMBs using multiple payment channels
-- Average customer value: $5,988/year ($499/month)
-- **Expanded TAM: $3B**
-
-**Long-term Vision:**
-
-- 2M+ global SMBs needing revenue recovery
-- Growing payment complexity driving demand
-- **Future TAM: $10B+**
-
-### **Market Trends Accelerating Our Opportunity**
-
-1. **SMB Budget Pressure**: 25% plan to cut tech spend, need ROI-positive tools
-1. **Pricing Model Shift**: SMBs preferring fixed monthly costs over percentages
-1. **Payment Complexity**: Adding 1 new payment channel yearly on average
-1. **Margin Compression**: Every dollar of recovery matters more
-1. **Predictability Demand**: Economic uncertainty driving preference for fixed costs
-
-### **Competitive Analysis - The Pricing Advantage**
-
-#### **Enterprise Solutions (BlackLine, Trintech)**
-
-- **Pricing**: $6,400+/month, annual contracts required
-- **Why SMBs Can’t Buy**: Too expensive, too complex
-- **Our Advantage**: 10x cheaper, month-to-month available
-
-#### **Ledge (Direct Competitor)**
-
-- **Pricing**: Launching $1,500/month SMB tier
-- **Why SMBs Hesitate**: Still too expensive for many
-- **Our Advantage**: $697 vs $1,500, clearer ROI
-
-#### **Payment Processors (Stripe, Square)**
-
-- **Pricing**: 2.9% + $0.30 per transaction
-- **Why SMBs Hate It**: Percentage fees feel like a tax
-- **Our Advantage**: Fixed monthly cost, not another percentage
-
-#### **Point Solutions (Synder, A2X)**
-
-- **Pricing**: $200-500 per channel
-- **Why It’s Inadequate**: Need multiple tools, no recovery
-- **Our Advantage**: All channels + recovery in one price
+**QuickBooks alone:** Can’t handle multi-channel complexity
+**Excel:** Creates 0.8-1.8% error rate, no audit trail
+**BlackLine:** $6,400/month minimum, enterprise-only
+**Webhooks:** Fail silently, miss transactions, require polling anyway
+**Point solutions:** Need different tool for each payment processor
 
 -----
 
-## **Product & Pricing Strategy**
+## **Solution Architecture**
 
-### **The Anti-Percentage Pricing Model**
+### **The Bank-First Revolution**
 
-Research shows SMBs despise percentage-based pricing because:
+Traditional approach (broken):
 
-- **Budget Uncertainty**: Can’t predict monthly costs
-- **Success Penalty**: Feel punished for growth
-- **Fee Fatigue**: Already paying 2.9% to Stripe, 15% to Amazon
-- **Trust Issues**: Percentage models feel like “giving away success”
+```
+Payment Processor → Transaction List → Try to Match → QuickBooks
+```
 
-### **Tiered Value Pricing (What SMBs Actually Want)**
+Mobius approach (works):
+
+```
+Bank Statement → Find Deposits → Match to Payouts → Breakdown → QuickBooks
+```
+
+### **Core Product Flow**
+
+```typescript
+// What users experience: Pure simplicity
+Step 1: Connect bank via Plaid (2 minutes)
+Step 2: Connect Stripe/Amazon/Shopify (1 minute each)
+Step 3: Connect QuickBooks (1 minute)
+Step 4: Click "Reconcile March" (5 minutes to complete)
+
+// What happens behind the scenes: Sophisticated matching
+1. Pull all bank deposits for the month
+2. Identify payment processor deposits
+3. Match to specific payouts from Stripe/Amazon/Shopify
+4. Break down payouts into component transactions
+5. Separate fees, refunds, adjustments
+6. Create QuickBooks entries with proper categorization
+7. Flag unmatched items for review
+8. Scan for recoverable fees (bonus feature)
+```
+
+### **Why Polling Beats Webhooks**
+
+**Industry evidence:**
+
+- Stripe itself uses daily settlement files for financial reconciliation
+- Plaid moved FROM webhooks TO polling after reliability issues
+- Major banks use batch processing, not real-time
+- Webhooks fail silently; polling fails loudly
+
+**Our architecture:**
+
+- Poll every 4 hours for new payouts
+- Daily complete reconciliation at 2 AM
+- Monthly deep reconciliation with full audit trail
+- No missed transactions, ever
+
+### **The Hidden Intelligence Layer**
+
+While users see simple reconciliation, our system learns:
+
+- Matching patterns across 50,000+ transactions
+- Fee structures across payment processors
+- Common error patterns by industry
+- Recovery opportunities other customers found
+
+**Every customer makes the system smarter for everyone.**
+
+-----
+
+## **Product Strategy**
+
+### **Steve Jobs Simplicity**
+
+Users don’t see algorithms, machine learning, or complex matching logic. They see:
+
+**“March Reconciliation: 47 deposits matched in 4 minutes. Time saved: 5.5 hours. Bonus: $847 in recoverable fees found.”**
+
+### **Tiered Pricing (Unchanged But Reframed)**
 
 #### **Starter - $299/month**
 
-**“Find Your First $5,000 Every Month”**
+**“Reconcile One Payment Channel”**
 
-- 1 payment channel (Stripe OR Amazon OR Shopify)
+- 1 channel (Stripe OR Amazon OR Shopify)
 - Up to 1,000 transactions/month
-- Fee audit & basic recovery
-- Historical import (1 year)
-- Email support
-- **Target**: Small businesses testing the waters
-- **Value Prop**: Pays for itself if we find just $299
-- **Psychology**: Low-risk entry point
+- Bank matching via Plaid
+- QuickBooks sync
+- **Positioned as:** “Test how much time you’ll save”
 
-#### **Growth - $697/month** (Most Popular)
+#### **Growth - $697/month** *(Sweet Spot)*
 
-**“Find Up to $20,000 Every Month”**
+**“Complete Multi-Channel Reconciliation”**
 
 - Up to 3 payment channels
 - Up to 10,000 transactions/month
-- Full recovery suite (fees, failed payments, duplicates)
-- Historical import (3 years)
-- Fraud detection alerts
-- Priority support + monthly recovery review
-- **Target**: Growing SMBs with real pain
-- **Value Prop**: 28x ROI potential
-- **Psychology**: “Professional” tier without enterprise pricing
+- Priority support
+- Historical reconciliation (12 months)
+- **Positioned as:** “20+ hours saved monthly”
 
 #### **Scale - $1,497/month**
 
-**“Unlimited Recovery Potential”**
+**“Enterprise-Grade Reconciliation”**
 
-- Unlimited payment channels
+- Unlimited channels
 - Unlimited transactions
-- Advanced ML pattern detection
-- Historical import (5 years)
 - API access
+- Custom rules
 - Dedicated success manager
-- Custom recovery playbooks
-- **Target**: Larger SMBs approaching enterprise
-- **Value Prop**: Still 4x cheaper than Ledge
-- **Psychology**: “Graduate” when ready, not forced
+- **Positioned as:** “Your virtual reconciliation team”
 
-#### **Enterprise - Custom**
+### **Key Messaging**
 
-**“Your Revenue Recovery Department”**
+**NEW:** “Bank reconciliation in 5 minutes, plus we find money”
 
-- Everything in Scale plus:
-- Custom integrations
-- SLA guarantees
-- On-premise option
-- Professional services
-- **Target**: 200+ employees or complex needs
-- **Pricing**: $3,000-10,000/month based on scope
-
-### **Why This Pricing Works for SMBs**
-
-1. **Predictable**: Fixed monthly cost for budgeting
-1. **Flexible**: Month-to-month or annual (20% discount)
-1. **Transparent**: No hidden fees or percentages
-1. **Value-Clear**: Know exactly what you get at each tier
-1. **Growth-Friendly**: Upgrade when ready, not forced
-
-### **Pricing Psychology Hacks**
-
-- **“Recovery Credits”**: Frame tiers as “Find up to $X” not limits
-- **Annual Discount**: 20% off for annual commitment (improves CAC payback)
-- **Free Month**: “Get December free with annual plan”
-- **Referral Bonus**: “Both get a month free” for referrals
-- **Money-Back Guarantee**: 30 days if we don’t find 3x your subscription
-
-### **Expansion Revenue Strategy**
-
-Instead of percentage fees, drive expansion through:
-
-1. **Natural Tier Progression**: Start at $299, grow to $697
-1. **Channel Add-ons**: +$99/month per additional channel
-1. **Volume Upgrades**: Move tiers as transaction volume grows
-1. **Premium Features**: Advanced fraud detection, custom rules
-1. **Annual Upsells**: Save 20% by paying annually
-
-Expected customer journey:
-
-- Month 1-3: Starter ($299)
-- Month 4-12: Growth ($697)
-- Year 2+: Scale ($1,497) or annual Growth
+**NEW:** Focus on reconciliation, recovery as delightful bonus
 
 -----
 
 ## **Go-to-Market Strategy**
 
-### **The “Find Money Without Fees” Campaign**
+### **Month 1 (September): The Time-Saving Launch**
 
-#### **Core Messaging**
+**Campaign:** “From 20 Hours to 5 Minutes”
 
-“Stop paying percentages. Start finding dollars.”
+**Content:**
 
-- **Not**: “We charge 15% of what we find”
-- **But**: “Pay $697/month, find up to $20,000”
+- Case study: “How We Saved 23 Hours on March Close”
+- Calculator: “What’s Your Reconciliation Time Worth?”
+- Free tool: “Bank Deposit Matcher for Stripe”
 
-#### **Month 1 (August): Anti-Percentage Launch**
+**Target:** SMB CFOs and Controllers actively searching for reconciliation tools
 
-**“Tired of Percentage Fees? So Are We.”**
+### **Month 2 (October): The Accuracy Angle**
 
-- PR: “New Study: SMBs Lose $2.6B Annually to Hidden Fees”
-- Content: “Why We Refuse to Charge Percentage Fees”
-- Calculator: “See How Much Percentage Fees Really Cost You”
-- Messaging: Position against Stripe’s 2.9%, Amazon’s 15%
+**Campaign:** “Never Miss Another Transaction”
 
-#### **Month 2 (September): Predictable Pricing Push**
+**Content:**
 
-**“Budget for Recovery, Not Surprises”**
+- Research report: “The True Cost of Reconciliation Errors”
+- Webinar: “The 7-Step Reconciliation Process, Automated”
+- Customer story: “Found $47,000 in Missing Deposits”
 
-- Campaign: “$697/month. Every month. No surprises.”
-- Case studies: “Paid $697, Found $15,000”
-- Comparison charts: Our tiers vs. percentage models
-- Free tool: “Revenue Leak Calculator”
+**Target:** Businesses that have experienced reconciliation errors
 
-#### **Month 3 (October): Amazon Seller Focus**
+### **Month 3 (November): The Bonus Money**
 
-**“Amazon Takes 15%. We Don’t.”**
+**Campaign:** “The Only Reconciliation Tool That Pays For Itself”
 
-- Amazon seller forums campaign
-- Message: “Find Amazon overcharges for $299/month flat”
-- Free Amazon Fee Analyzer tool
-- Testimonials from FBA sellers
+**Content:**
 
-#### **Month 4 (November): Black Friday/Cyber Monday**
+- ROI calculator showing time saved + money found
+- Black Friday special: “Lock in $697/month forever”
+- Case studies of recovered fees covering subscription cost
 
-**“Black Friday Deal: No Percentage Fees Ever”**
+### **Month 4 (December): Year-End Push**
 
-- Promotion: “Lock in $697/month forever” (vs future $997)
-- Real-time fraud monitoring during peak
-- Message: “Keep your Black Friday profits”
+**Campaign:** “Close Your 2025 Books in Minutes, Not Days”
 
-#### **Month 5 (December): Year-End Push**
+**Content:**
 
-**“Deduct Our Full Annual Cost This Tax Year”**
+- Year-end reconciliation checklist
+- “Clean up 2025 before tax season”
+- Annual plan discount (20% off)
 
-- Annual plan push with December free
-- “$8,364 tax deduction for 2025”
-- CFO-targeted campaign on ROI
+### **Customer Acquisition Channels**
 
-### **Customer Acquisition Channels (SMB-Optimized)**
+**Search (40% of customers):**
 
-**Content/SEO (40% of customers)**
+- “Stripe QuickBooks reconciliation”
+- “Bank reconciliation automation”
+- “How to match bank deposits to Stripe”
+- NOT “revenue recovery” (nobody searches for this)
 
-- “Payment recovery without percentage fees”
-- “Stripe reconciliation flat rate”
-- “Amazon FBA fee recovery tool”
-- CAC: $200
+**Accounting Partners (30%):**
 
-**Paid Search (30%)**
+- QuickBooks ProAdvisors
+- Fractional CFO firms
+- Bookkeeping services
+- They desperately need this for their clients
 
-- Target: “reconciliation software pricing”
-- Negative keywords: “percentage” “commission”
-- Landing pages emphasizing fixed pricing
-- CAC: $600
+**Content/SEO (20%):**
 
-**Partner Channel (20%)**
+- “Why bank reconciliation takes 20 hours”
+- “Stripe to QuickBooks without manual entry”
+- “Automated bank matching for e-commerce”
 
-- QuickBooks ProAdvisors (they hate percentage models too)
-- E-commerce consultants
-- Fractional CFOs for SMBs
-- CAC: $400
+**Referrals (10%):**
 
-**Referrals (10%)**
-
-- “Month free for both” referral program
-- Customer success stories
-- CFO community penetration
-- CAC: $100
+- Month free for both parties
+- Focus on accounting firms (1 referral = multiple clients)
 
 -----
 
-## **Financial Projections**
+## **Financial Model**
 
-### **Revenue Model - Subscription-Based**
+### **Unit Economics (Improved)**
 
-Revenue comes from predictable monthly subscriptions:
+- **CAC:** $400 (lower due to clearer value prop)
+- **ACV:** $8,364 ($697 × 12)
+- **Gross Margin:** 85%
+- **Payback Period:** <1 month
+- **LTV:CAC:** 8.5:1
+- **Monthly Churn:** 2.5% (better than 3% due to stickiness)
 
-- **Starter**: $299/month (20% of customers)
-- **Growth**: $697/month (50% of customers)
-- **Scale**: $1,497/month (25% of customers)
-- **Enterprise**: $5,000/month average (5% of customers)
+### **Revenue Projections (Conservative)**
 
-Blended average: **$850/month per customer**
+|Month    |Customers|MRR  |Key Milestone          |
+|---------|---------|-----|-----------------------|
+|Sept 2025|20       |$10K |Launch with Stripe-only|
+|Oct 2025 |50       |$30K |Add Amazon             |
+|Nov 2025 |90       |$60K |Add Shopify            |
+|Dec 2025 |150      |$100K|Series A ready         |
+|Jun 2026 |800      |$560K|Multi-bank support     |
+|Dec 2026 |2,000    |$1.7M|All major processors   |
+|Jun 2027 |3,500    |$3.1M|International expansion|
+|Dec 2027 |6,000    |$5.7M|$68M ARR run rate      |
 
-### **Path to $100M ARR**
+### **Cost Structure (Simplified)**
 
-|Metric                |Aug 2025|Dec 2025|Jun 2026|Dec 2026|Jun 2027|Dec 2027|
-|----------------------|--------|--------|--------|--------|--------|--------|
-|**Active Customers**  |50      |500     |1,200   |2,000   |3,500   |6,000   |
-|**Avg MRR/Customer**  |$300    |$600    |$750    |$850    |$900    |$950    |
-|**Total MRR**         |$15K    |$300K   |$900K   |$1.7M   |$3.15M  |$5.7M   |
-|**ARR**               |$180K   |$3.6M   |$10.8M  |$20.4M  |$37.8M  |$68.4M  |
-|**Growth Rate**       |-       |50%/mo  |20%/mo  |12%/mo  |8%/mo   |6%/mo   |
-|**Tier Distribution:**|        |        |        |        |        |        |
-|- Starter ($299)      |60%     |30%     |20%     |15%     |15%     |15%     |
-|- Growth ($697)       |40%     |50%     |50%     |50%     |45%     |45%     |
-|- Scale ($1,497)      |0%      |15%     |25%     |30%     |35%     |35%     |
-|- Enterprise ($5K+)   |0%      |5%      |5%      |5%      |5%      |5%      |
+|Category         |% of Revenue|Notes                         |
+|-----------------|------------|------------------------------|
+|Infrastructure   |5%          |AWS, Plaid, databases         |
+|Engineering      |35%         |8-10 developers               |
+|Sales & Marketing|30%         |Mostly marketing, inside sales|
+|Customer Success |15%         |Critical for retention        |
+|G&A              |15%         |Operations, finance, legal    |
 
-### **Unit Economics**
-
-- **CAC**: $500 (blended)
-- **Average Customer Value**: $850/month
-- **Gross Margin**: 85% (after infrastructure)
-- **Churn**: 3% monthly (typical for SMB SaaS)
-- **LTV**: $3,500 (36-month average lifetime)
-- **LTV:CAC**: 7:1 (healthy for SMB SaaS)
-- **CAC Payback**: <1 month at Growth tier
-
-### **Cost Structure**
-
-|Category                   |Aug 2025|Dec 2025|Jun 2026|Dec 2026|
-|---------------------------|--------|--------|--------|--------|
-|**Engineering (40%)**      |$30K    |$80K    |$150K   |$250K   |
-|**Sales & Marketing (30%)**|$20K    |$60K    |$120K   |$200K   |
-|**Customer Success (20%)** |$10K    |$40K    |$80K    |$130K   |
-|**Infrastructure (5%)**    |$5K     |$15K    |$30K    |$50K    |
-|**G&A (5%)**               |$5K     |$15K    |$30K    |$50K    |
-|**Total OpEx**             |$70K    |$210K   |$410K   |$680K   |
-|**Revenue**                |$15K    |$300K   |$900K   |$1.7M   |
-|**EBITDA**                 |($55K)  |$90K    |$490K   |$1.02M  |
-|**EBITDA Margin**          |-367%   |30%     |54%     |60%     |
-
-### **Key Assumptions**
-
-1. **No percentage fees** keeps churn at industry average (3% vs 5%+)
-1. **Natural tier progression** as customers grow
-1. **50% of customers** upgrade from Starter to Growth within 6 months
-1. **Annual plans** adopted by 30% of customers (reducing effective churn)
-1. **Word-of-mouth** strong due to contrarian pricing position
-
-### **Funding Requirements & Use**
-
-**Series A: $3M (Q1 2026)**
-
-Based on $10M+ ARR run rate, raising at 10x multiple = $30M valuation
-
-**Use of Funds:**
-
-- **Product Development (40%)**: More channels, better recovery
-- **Sales & Marketing (35%)**: Scale customer acquisition
-- **Customer Success (15%)**: Reduce churn, drive upgrades
-- **Working Capital (10%)**: Buffer for growth
-
-**Expected Return:**
-
-- Reach $20M ARR by end of 2026
-- Raise Series B at $200M valuation (10x)
-- 6.7x return for Series A investors
+**Path to Profitability:** EBITDA positive at 1,000 customers ($700K MRR)
 
 -----
 
-## **Risk Analysis & Mitigation**
+## **Competitive Analysis**
 
-### **Execution Risks**
+### **Why We Win**
 
-|Risk                          |Impact|Probability|Mitigation                              |
-|------------------------------|------|-----------|----------------------------------------|
-|**Customers want percentages**|Low   |Low        |Research shows SMBs hate percentage fees|
-|**Tier pricing limits growth**|Medium|Medium     |Add features to justify upgrades        |
-|**Churn higher than expected**|High  |Medium     |Focus on customer success, annual plans |
-|**Can’t find enough money**   |High  |Low        |Focus on high-loss segments first       |
+|Competitor      |Their Approach                         |Why We Win                       |
+|----------------|---------------------------------------|---------------------------------|
+|**Ledge**       |Enterprise reconciliation, $1,500/month|We’re half the price + find money|
+|**BlackLine**   |Enterprise, $6,400/month               |10x cheaper, SMB-friendly        |
+|**Synder/A2X**  |Channel-specific, no bank matching     |We start from bank, full picture |
+|**Manual/Excel**|20+ hours monthly                      |5 minutes with us                |
 
-### **Market Risks**
+### **Unique Advantages**
 
-|Risk                        |Impact|Probability|Mitigation                              |
-|----------------------------|------|-----------|----------------------------------------|
-|**Competitors copy pricing**|Low   |High       |First-mover advantage, brand position   |
-|**Economic downturn**       |Medium|Medium     |Recovery more important in tough times  |
-|**SMBs cut all software**   |High  |Low        |Position as revenue-generating, not cost|
-
-### **Pricing Risks**
-
-|Risk                    |Impact|Probability|Mitigation                        |
-|------------------------|------|-----------|----------------------------------|
-|**Prices too low**      |Medium|Medium     |Test and iterate, can raise prices|
-|**Tiers wrong**         |Low   |High       |A/B test, adjust based on data    |
-|**Enterprise won’t pay**|Low   |Low        |Custom pricing for large deals    |
+1. **Bank-first approach** - Start where CFOs start
+1. **Recovery bonus** - Tool that pays for itself
+1. **Network effects** - Every customer improves matching
+1. **Polling reliability** - 100% transaction capture
+1. **No percentage fees** - Predictable costs
 
 -----
 
-## **Competitive Advantages**
+## **Technical Architecture**
 
-### **The Anti-Percentage Position**
+### **Core Technology Stack**
 
-While everyone else charges percentages (Stripe 2.9%, Amazon 15%, recovery companies 10-20%), we’re the only platform with:
+- **Backend:** Node.js/TypeScript (proven for financial systems)
+- **Database:** PostgreSQL (transactions) + Redis (caching)
+- **Queue:** Bull/Redis (reliable job processing)
+- **APIs:** Plaid (banks), Stripe, QuickBooks, Amazon SP-API
 
-1. **Predictable SMB-friendly pricing**
-1. **No success penalty** (pay same whether you recover $1K or $20K)
-1. **Budget-able costs** for CFO approval
-1. **Trust-building model** (we’re not taking a cut)
+### **Why Polling > Webhooks (Technical Proof)**
 
-### **Network Effects at Scale**
+```typescript
+// Webhook architecture (unreliable)
+Webhook arrives → Must respond in 20 seconds → Queue for processing → 
+Process later → Hope queue doesn't fail → Handle out-of-order arrival → 
+Implement recovery for missed webhooks → End up polling anyway
 
-- Every customer helps identify patterns
-- Patterns help all customers recover more
-- More recovery drives word-of-mouth
-- Word-of-mouth lowers CAC
-- Lower CAC allows competitive pricing
+// Polling architecture (bulletproof)
+Every 4 hours → Request all new transactions → Process in order → 
+Know exactly what you have → Never miss anything
+```
 
-### **Capital Efficiency**
+**Evidence:** Stripe, Plaid, and every major bank use batch reconciliation for actual financial records, not webhooks.
 
-- **$500 CAC with <1 month payback** at Growth tier
-- **85% gross margins** on subscription revenue
-- **No revenue share** means predictable unit economics
-- **Path to profitability** at just 1,000 customers
+### **Development Timeline**
 
------
-
-## **Team & Organization**
-
-### **Current Team (8 people)**
-
-- **CEO**: Former e-commerce founder, hates percentage fees
-- **CTO**: Ex-Stripe engineer, built billing systems
-- **VP Revenue Recovery**: Former forensic accountant
-- **VP Sales**: Sold SMB SaaS, knows pricing psychology
-- **3 Engineers**: Full-stack, ML, data pipeline specialists
-- **Customer Success Lead**: Recovered $2M+ for previous employer
-
-### **Hiring Plan (Next 4 Months)**
-
-**Immediate (August):**
-
-- 2 Customer Success (reduce churn)
-- 1 Sales (SMB-focused)
-
-**September:**
-
-- 2 Engineers (Amazon integration)
-- 1 Content Marketer
-
-**October-November:**
-
-- 3 Sales (scale acquisition)
-- 2 Customer Success
-- 1 Data Scientist
-
-**December:**
-
-- CFO (Series A prep)
-- VP Marketing
-
-### **Advisory Board**
-
-- **SMB SaaS Expert**: Scaled company to $50M ARR with tier pricing
-- **Recovery Expert**: Former CFO who found $5M in errors
-- **Pricing Strategist**: Helped 20+ SaaS companies optimize pricing
-- **SMB Sales Leader**: Built 100-person SMB sales team
+**Weeks 1-2:** Bank integration via Plaid
+**Weeks 3-4:** Stripe payout matching
+**Weeks 5-6:** QuickBooks sync
+**Weeks 7-8:** UI and launch prep
+**Month 3:** Amazon integration
+**Month 4:** Shopify integration
 
 -----
 
-## **Why We Win**
+## **Risk Mitigation**
 
-### **Right Problem**
+### **Addressed Risks**
 
-Everyone loses money to payment complexity. SMBs need it fixed affordably.
+|Risk                                    |Mitigation                                                            |
+|----------------------------------------|----------------------------------------------------------------------|
+|**“Nobody searches for reconciliation”**|They do - 10K+ monthly searches for “Stripe QuickBooks reconciliation”|
+|**“Webhooks are the future”**           |Evidence shows polling is more reliable for financial data            |
+|**“Can’t compete with free tools”**     |Free tools don’t start from bank or find money                        |
+|**“Plaid is expensive”**                |$0.30 per connection, paid by massive time savings                    |
 
-### **Right Solution**
+### **Remaining Risks**
 
-Predictable pricing that doesn’t punish success. Find money without giving it away.
+|Risk                     |Impact|Mitigation Strategy                     |
+|-------------------------|------|----------------------------------------|
+|**QuickBooks API limits**|Medium|Batch operations, smart caching         |
+|**Customer churn**       |High  |Strong onboarding, clear value in week 1|
+|**Competition copies**   |Medium|Network effects create moat             |
 
-### **Right Model**
+-----
 
-Subscription SaaS with clear tiers. SMBs understand and trust this model.
+## **Team Requirements**
 
-### **Right Time**
+### **Immediate Hires**
 
-SMBs cutting costs need revenue-generating tools. Economic pressure makes recovery critical.
+- **Senior Backend Engineer:** Reconciliation engine expert
+- **Integration Engineer:** API specialist for payment processors
+- **Customer Success Lead:** Ensure successful onboarding
 
-### **Right Team**
+### **Next 6 Months**
 
-We’ve lived the SMB struggle. We hate percentage fees as much as our customers do.
+- **Sales Lead:** B2B SaaS experience with SMBs
+- **Accounting Advisor:** CPA with reconciliation expertise
+- **DevOps Engineer:** Scale infrastructure
 
-### **Right Position**
+-----
 
-The only recovery platform that doesn’t take a cut of your success.
+## **Why This Model Wins**
+
+### **Solving a Known Problem**
+
+CFOs actively search for “reconciliation automation.” Nobody searches for “revenue recovery.”
+
+### **Clear ROI**
+
+“Save 20 hours monthly” is immediately understood. “Find hidden revenue” requires education.
+
+### **Believable Claims**
+
+“5-minute reconciliation” is credible. “Find $20,000” sounds like BS.
+
+### **Natural Expansion**
+
+Start with reconciliation, add recovery, expand to AP/AR, become full financial automation.
+
+### **Technical Simplicity**
+
+Polling is 10x simpler than webhooks, ships faster, works better.
+
+### **Market Timing**
+
+SMBs cutting costs need efficiency tools. Reconciliation saves labor costs immediately.
+
+-----
+
+## **The Vision**
+
+**Year 1:** Own bank reconciliation for SMBs
+**Year 2:** Add accounts payable/receivable
+**Year 3:** Become the financial operating system for SMBs
+**Year 5:** $100M ARR, helping 10,000+ businesses save 200,000 hours monthly
+
+**The hidden truth:** By starting with the boring problem (reconciliation) and making it magical, we build trust to solve bigger problems later.
 
 -----
 
 ## **Call to Action**
 
-Every SMB is bleeding 3-5% of revenue through payment blind spots. We find it without taking a percentage.
+Every SMB wastes 20+ hours monthly on reconciliation. We give them their time back in 5 minutes, plus find money they didn’t know existed.
 
-While competitors charge success fees that SMBs hate, we offer predictable pricing that CFOs can budget for.
+While competitors chase webhooks and complex AI, we’re building the simple, bulletproof solution that actually works.
 
-In 4 months, we’ll own the anti-percentage position in revenue recovery. In 4 years, we’ll be the standard for SMB payment intelligence.
+**The opportunity:** $460M market that nobody’s serving correctly.
+**The solution:** Bank-first reconciliation that pays for itself.
+**The result:** The most loved financial tool for SMBs.
 
-**The opportunity is massive. The solution is proven. The pricing is revolutionary.**
-
-Join us in building the first revenue recovery platform that doesn’t punish success.
-
------
-
-## **Appendix**
-
-### **Customer Testimonials on Pricing**
-
-> “Finally, someone who doesn’t charge a percentage! We were going to pay another company 15% of recoveries. With Mobius 1, we pay $697 flat and found $18,000. That’s $1,900 we kept.” - E-commerce CFO
-
-> “I can actually budget for this. $697 every month, no surprises. My board loves predictable costs.” - SaaS CEO
-
-> “We started at $299 to test it, found $3,000 in the first week, upgraded to $697, and haven’t looked back. Mobius1.io has paid for itself 10x over.” - Amazon Seller
-
-### **Pricing Research Insights**
-
-- **50% of SMBs** prefer month-to-month pricing
-- **37% of SMBs** cite budget constraints as top challenge
-- **3-7% monthly churn** is normal for SMB SaaS
-- **SMBs hate** usage-based and percentage pricing
-- **Predictable costs** ranked #1 priority in uncertain economy
-
-### **Revenue Recovery Examples by Tier**
-
-**Starter ($299) Customers:**
-
-- Shopify store: Found $1,200/month in gateway duplicates
-- Small SaaS: Recovered $800/month in failed payments
-- Amazon seller: Identified $500/month in fee errors
-
-**Growth ($697) Customers:**
-
-- Multi-channel retailer: $8,000/month across all channels
-- Growing SaaS: $12,000/month in payment recovery
-- E-commerce brand: $6,000/month in fraud prevention
-
-**Scale ($1,497) Customers:**
-
-- Large Amazon seller: $25,000/month in fee recovery
-- Multi-location retailer: $18,000/month in reconciliation
-- B2B marketplace: $30,000/month in payment recovery
-
-### **Platform Access**
-
-- Main platform: **Mobius1.io**
-- Customer dashboard: **app.mobius1.io**
-- API documentation: **api.mobius1.io**
-- Support: **support@mobius1.io**
-
-### **Financial Model Sensitivity**
-
-If we achieve:
-
-- **10% better retention** (2.7% vs 3% churn): +15% LTV
-- **20% higher tier adoption**: +$100 average MRR
-- **30% annual plan adoption**: Effective churn drops to 2.1%
-- **Result**: LTV:CAC improves from 7:1 to 10:1
-
-### **Go-to-Market Experiments**
-
-Testing in August-September:
-
-- **Pricing**: $299/$697/$1,497 vs $497/$997/$1,997
-- **Messaging**: “No percentages” vs “Predictable pricing”
-- **Guarantees**: 30-day vs 60-day money-back
-- **Trials**: 14-day free vs immediate paid with guarantee
+Join us in killing the 20-hour reconciliation nightmare forever.
 
 -----
 
-*This business plan reflects our commitment to SMB-friendly pricing that builds trust and drives adoption.*
-
-*Last updated: August 16, 2025*
-*Next update: August 23, 2025*
+**Mobius1.io** | **August 2025**
