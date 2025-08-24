@@ -1,619 +1,563 @@
 # Product Requirements Document (PRD)
 
-## Mobius: The Revenue Recovery Platform
+## Mobius 1: Multi-Channel Payment Reconciliation Platform
 
 **Version:** 3.0  
-**Date:** August 2025  
-**Status:** Pivot to Revenue Recovery Positioning
+**Date:** November 2025  
+**Status:** Pre-Launch Beta Testing
 
 -----
 
 ## Executive Summary
 
-Mobius is **the revenue recovery platform** that finds the 3-5% of revenue businesses are bleeding through financial blind spots. We don’t just reconcile payments—we discover lost money hiding in merchant fees, failed payments, untracked refunds, and multi-channel chaos. For the 55,000 companies trapped between QuickBooks and enterprise solutions, we turn financial blindness into financial intelligence.
+SMBs waste 60 hours monthly reconciling payments from multiple channels. Mobius 1 automates this entire process, reducing reconciliation to 5 minutes. We automatically match bank deposits to payment processor payouts (Stripe, Amazon, Shopify) and sync everything to QuickBooks with fees properly separated.
 
-### The Brutal Truth
+### Current Reality
 
-Every business processing payments across multiple channels is losing money they don’t even know about:
+- **Customers:** 10 beta testers (pre-launch)
+- **Product Status:** Core matching engine built and working (92% accuracy)
+- **Revenue:** $0 MRR (launching January 2026)
+- **Timeline:** 12 months to 150 customers and seed funding
 
-- **Hidden fees** eating 2-3% extra on Amazon
-- **Failed payments** killing 5-9% of SaaS revenue
-- **Return fraud** costing retailers $101B annually
-- **Duplicate charges** happening daily across channels
-- **Processing errors** compounding silently for months
+### The Validated Problem
 
-**We find it. Automatically. In real-time.**
+**PwC research documents the burden:**
 
-### Adjusted Timeline (August - December 2025)
+- **60 hours monthly** for businesses with 1,000 transactions
+- **200 hours monthly** for businesses with 10,000 transactions
+- **0.8-1.8% error rate** in manual reconciliation
+- **20 hours weekly** lost to multi-channel data reconciliation (Webgility)
 
-- **Phase 1 (Aug-Sept):** Launch Revenue Recovery Engine for Stripe
-- **Phase 2 (Oct):** Amazon Fee Finder - “We found $50K in hidden fees”
-- **Phase 3 (Nov):** Shopify Leak Detector - Multi-gateway revenue recovery
-- **Phase 4 (Dec):** Full Revenue Intelligence Platform
+### Solution: 5-Minute Reconciliation
 
-### Critical Achievements Needed by Year-End
+Multi-channel payment reconciliation that:
 
-- **$10M+ in recovered revenue** for customers (trackable metric)
-- **500+ paying customers** finding real money
-- **$350K MRR** from revenue share + subscriptions
-- **Series A story:** “We find money others miss”
+- Automatically matches bank deposits to payment processor payouts
+- Breaks down payouts into individual transactions
+- Syncs to QuickBooks with fees properly separated
+- Flags discrepancies for investigation
 
-### The New Value Proposition
+### Launch Timeline
 
-**Before:** “We reconcile your payments accurately”  
-**Now:** “We find the money you’re losing”
-
-**Before:** “95% reconciliation accuracy”  
-**Now:** “Average customer recovers $47,000 in year one”
-
-**Before:** “Multi-channel payment reconciliation”  
-**Now:** “See every dollar across every channel—and get back what’s yours”
+- **January 2026:** Launch with Stripe only (5 customers)
+- **April 2026:** Add second channel (40 customers, $12K MRR)
+- **December 2026:** Full platform (150 customers, $45K MRR)
 
 -----
 
-## The Real Problem We’re Solving
+## Problem Statement
 
-### It’s Not About Reconciliation—It’s About Blindness
+### The Multi-Channel Reconciliation Nightmare
 
-Businesses aren’t looking for better reconciliation. They’re hemorrhaging money and don’t even know it. Our research proves:
+Mid-market e-commerce businesses processing payments through multiple channels face an exponential reconciliation burden:
 
-- **84% of companies** still use Excel for reconciliation, creating blind spots
-- **3-5% of revenue** disappears into these blind spots
-- **5-7 full days monthly** spent searching for discrepancies—after the money is already gone
-- **$162 billion** in improper payments by the U.S. government alone shows the scale
+**Current Process (60+ hours monthly):**
 
-### The Money Is Already Lost—They Just Don’t Know It
+1. Export bank statements
+1. Export Stripe payouts
+1. Export Amazon settlement reports
+1. Export Shopify payouts
+1. Manually match deposits to payouts in Excel
+1. Break down bulk payouts into individual transactions
+1. Separate fees for proper categorization
+1. Create QuickBooks journal entries
+1. Investigate and resolve discrepancies
+1. Maintain audit trail for compliance
 
-**E-commerce Reality:**
+**Why Current Solutions Fail:**
 
-- Amazon sellers lose 2-3% to new fee structures they don’t understand
-- 15+ different FBA fee types hiding in settlement reports
-- Returns processed wrong, inventory value miscalculated
-- “Found $50K in Amazon fee errors” - actual customer quote
+- **QuickBooks:** Can’t match deposits to payment processor payouts
+- **A2X/Synder:** Single channel only, still require manual bank matching
+- **BlackLine:** $6,400/month enterprise overkill
+- **Manual/Excel:** Error-prone, no audit trail, doesn’t scale
 
-**SaaS Bleeding:**
+### Target Customer Profile
 
-- 5-9% MRR loss from failed payment recovery
-- Involuntary churn from card failures never attempted again
-- Prorations calculated wrong, trials converting at wrong amounts
-- Dunning processes failing silently
+**Primary: Shopify Plus Stores**
 
-**Retail Leakage:**
+- **Revenue:** $3-10M annually
+- **Payment Mix:** Stripe (primary) + PayPal/Amazon (secondary)
+- **Transaction Volume:** 500-5,000 monthly
+- **Current Solution:** Excel or partial automation
+- **Pain:** “We spend 3 days every month just matching deposits”
+- **Budget:** $300-1,000/month for financial tools
 
-- $743 billion in returns (14.5% of sales) with $101B in fraud
-- Multi-location discrepancies compound daily
-- Gift card breakage untracked, store credit vanishing
-- POS systems not talking to accounting
+**Secondary: Multi-Channel E-commerce**
 
-### Our Unique Insight
-
-**Everyone else:** “Let us reconcile your payments faster”  
-**Mobius:** “Let us show you the money you didn’t know you lost”
-
-The difference:
-
-- Others match transactions to invoices
-- We identify patterns that indicate lost revenue
-- Others show you what happened
-- We show you what SHOULD have happened
+- **Revenue:** $5-20M annually
+- **Channels:** Direct site + Amazon + retail/wholesale
+- **Pain:** “Can’t reconcile across all our payment channels”
+- **Trigger:** Month-end close taking 5+ days
 
 -----
 
-## Solution: The Revenue Recovery Platform
+## Solution Overview
 
-### Core Discovery Mechanisms
+### Core Value Proposition
 
-#### 1. Fee Anomaly Detection
+**“Multi-channel payment reconciliation in 5 minutes”**
 
-```typescript
-// Not just calculating fees—finding overcharges
-class FeeAuditor {
-  async findLostRevenue(transactions: Transaction[]): Promise<RecoveredMoney> {
-    const discoveries = {
-      amazonOvercharges: this.auditAmazonFees(),     // "You were charged long-term storage on items that sold"
-      stripeInternational: this.findWrongRates(),     // "You're paying international rates on domestic cards"
-      shopifyDouble: this.findDuplicateCharges(),     // "Same transaction charged by two gateways"
-      hidden: this.findUndisclosedFees()              // "Fees not in your original agreement"
-    };
-    
-    return {
-      totalFound: sum(discoveries),
-      actionable: this.generateClaimDocuments(),      // Ready-to-send recovery claims
-      prevented: this.setupAlerts()                   // Stop future losses
-    };
-  }
-}
+Save 60 hours monthly by automating the entire reconciliation process across Stripe, Amazon, and Shopify.
+
+### Product Architecture
+
+#### Phase 1: Stripe Foundation (January 2026)
+
+**Core Features:**
+
+- Connect bank via Plaid (2-minute setup)
+- Automatic Stripe payout matching
+- Transaction breakdown with fee separation
+- QuickBooks journal entry creation
+- Discrepancy flagging for review
+
+**User Flow:**
+
+```
+1. Connect bank account (2 min)
+2. Connect Stripe (1 min)
+3. Connect QuickBooks (1 min)
+4. Click "Reconcile December"
+5. Review matches (95% auto-matched)
+6. Confirm edge cases
+7. Sync to QuickBooks
+Total time: 5 minutes
 ```
 
-#### 2. Failed Payment Recovery
+#### Phase 2: Amazon Integration (April 2026)
 
-```typescript
-// Every failed payment is lost revenue
-class RevenueRecovery {
-  async recoverFailedPayments(): Promise<Recovery> {
-    return {
-      // Immediate wins
-      retryOptimization: this.smartRetrySchedule(),   // Retry at optimal times
-      cardUpdater: this.updateExpiredCards(),         // Proactively update before failure
-      dungeonRescue: this.intelligentDunning(),       // Personalized recovery sequences
-      
-      // Long-term prevention
-      declineIntelligence: this.predictFailures(),    // Stop failures before they happen
-      routingOptimization: this.smartRouting()        // Route to highest success processor
-    };
-  }
-}
-```
+**Additional Features:**
 
-#### 3. Return & Refund Intelligence
+- Settlement report parsing
+- Reserve tracking and release matching
+- FBA fee breakdown (15+ fee types)
+- Multi-marketplace support (US, CA, UK)
 
-```typescript
-// Returns hide massive fraud and errors
-class ReturnAuditor {
-  async auditReturns(): Promise<Findings> {
-    return {
-      fraudulent: this.detectReturnFraud(),           // "Serial returner detected"
-      policy: this.findPolicyViolations(),            // "Refunded outside return window"
-      doubleRefunds: this.findDuplicateRefunds(),     // "Customer refunded twice"
-      inventory: this.reconcileReturnedInventory()    // "Items marked returned but not received"
-    };
-  }
-}
-```
+#### Phase 3: Shopify Support (July 2026)
 
-### The Money Discovery Dashboard
+**Additional Features:**
 
-Instead of “reconciliation status,” show:
+- Multi-gateway reconciliation
+- Shopify Payments + PayPal + others
+- POS vs online separation
+- Currency conversion handling
 
-```typescript
-interface MoneyDashboard {
-  // The number they care about
-  moneyFound: {
-    thisMonth: "$12,847",
-    yearToDate: "$47,283",
-    projected: "$94,000"
-  },
-  
-  // Where we found it
-  discoveries: [
-    { source: "Amazon FBA fees", amount: "$3,200", status: "Claim filed" },
-    { source: "Duplicate Stripe charges", amount: "$1,100", status: "Refunded" },
-    { source: "Failed payment recovery", amount: "$8,547", status: "Recovered" }
-  ],
-  
-  // What's at risk
-  warnings: [
-    "23 transactions showing fraud patterns",
-    "$2,100 in fees outside contracted rates",
-    "142 failed payments not attempted"
-  ],
-  
-  // Competitive intelligence
-  benchmark: "You're losing 2.3% more than similar businesses"
-}
-```
+#### Phase 4: Platform Maturity (December 2026)
+
+**Platform Features:**
+
+- Unified dashboard across all channels
+- Historical reconciliation (24 months)
+- API access for Scale customers
+- Custom matching rules
+- Audit trail exports
 
 -----
 
-## Go-to-Market: The Money Discovery Campaign
+## Product Requirements
 
-### August: The Wake-Up Call
+### Functional Requirements
 
-**“You’re Losing 3-5% of Revenue and Don’t Even Know It”**
+#### Core Reconciliation Engine
 
-Launch with a Revenue Leak Calculator:
+**Matching Pipeline:**
 
-1. Enter your payment volume
-1. Select your channels (Stripe, Amazon, Shopify)
-1. See estimated annual loss
-1. “Find My Lost Revenue” CTA
+1. **SQL Pattern Matching** - 80% of standard deposits
+1. **Vector Embeddings** - Complex description matching
+1. **ML Confidence Scoring** - Historical pattern learning
+1. **Manual Review Queue** - Low-confidence matches
 
-Content strategy:
+**Performance Targets:**
 
-- “We Found $1.2M for Red Wing Shoes” (case study)
-- “The Hidden Cost of Multi-Channel Payments” (research report)
-- “5 Places Money Hides in Your Payment Stack” (viral LinkedIn post)
+- 95% auto-match accuracy
+- <5 minute processing for 10,000 transactions
+- 99.9% uptime
 
-### September: The Proof Campaign
+#### Integration Requirements
 
-**“Real Companies. Real Money Found.”**
+**Payment Processors:**
 
-Customer discovery stories:
+- Stripe API (payouts, transactions, fees)
+- Amazon SP-API (settlement reports)
+- Shopify API (payouts, orders)
 
-- “How We Found $50K in Amazon Fees for [Customer]”
-- “SaaS Company Recovers 7% of MRR with Smart Dunning”
-- “Retailer Discovers $30K Monthly Return Fraud”
+**Banking:**
 
-Free tools:
+- Plaid (read-only transaction access)
+- Support for 12,000+ US banks
 
-- Amazon FBA Fee Auditor (upload settlement report, see overcharges)
-- Stripe Fee Analyzer (connect via OAuth, instant audit)
-- Failed Payment Calculator (show recoverable revenue)
+**Accounting:**
 
-### October: Amazon Seller Domination
+- QuickBooks Online (initial)
+- Xero (Q3 2026)
 
-**“Every Amazon Seller Is Being Overcharged”**
+#### User Interface
 
-Amazon-specific campaign:
+**Dashboard:**
 
-- Seller forum takeover with fee audit results
-- “Amazon Sent Us a $50K Check” case study
-- Free Chrome extension showing fees in real-time
-- Partnership with Amazon seller tools
+- Reconciliation status by month
+- Time saved counter
+- Match confidence indicators
+- Discrepancy alerts
 
-### November: Black Friday Revenue Recovery
+**Reconciliation View:**
 
-**“Don’t Let Black Friday Profits Disappear”**
+- Deposit list with match status
+- Drag-and-drop manual matching
+- Bulk actions for common patterns
+- Transaction detail drill-down
 
-Real-time monitoring during peak:
+**Settings:**
 
-- Live fraud detection dashboard
-- Instant fee anomaly alerts
-- Failed payment recovery in real-time
-- “Save Your Black Friday” messaging
+- Connection management
+- QuickBooks account mapping
+- Matching rule customization
+- Team user management
 
-### December: The Series A Story
+### Non-Functional Requirements
 
-**“The Fastest Growing Revenue Recovery Platform”**
+#### Performance
 
-Metrics that matter:
+- Page load: <2 seconds
+- Reconciliation: <5 minutes for monthly data
+- API response: <500ms p99
 
-- “$10M+ recovered for customers”
-- “Average customer ROI: 847%”
-- “Payback period: 1.3 months”
-- “Every dollar we find is pure profit”
+#### Security
 
------
+- SOC 2 Type II by December 2026
+- Read-only bank access via Plaid
+- AES-256 encryption at rest
+- No storage of card numbers or bank credentials
 
-## Pricing: Aligned with Value Created
+#### Scalability
 
-### Pure Performance Model (Premium)
-
-**“We Only Win When You Win”**
-
-- **$497 base** + **15% of recovered revenue**
-- No limit on recovery amount
-- Includes all channels and features
-- Perfect for: Companies wanting zero risk
-
-### Subscription + Success (Standard)
-
-**“Predictable Cost, Predictable Recovery”**
-
-- **$997/month** + **5% of recovered revenue**
-- First $20K recovered included
-- Up to 3 channels
-- Perfect for: Growing companies with steady volume
-
-### Enterprise Intelligence (Custom)
-
-**“Your Revenue Protection Department”**
-
-- Custom pricing based on volume
-- Dedicated recovery specialist
-- API access and white-label options
-- Perfect for: $50M+ revenue companies
-
-### Why This Pricing Works
-
-- Aligned incentives (we find more = we earn more)
-- Immediate ROI (customers see money in month 1)
-- Trust builder (we’re confident we’ll find money)
-- Natural expansion (more channels = more recovery)
+- 100,000 transactions/month per customer
+- 1,000 concurrent users
+- 99.9% availability SLA
 
 -----
 
-## Success Metrics (What Actually Matters)
+## Pricing Strategy
 
-### Vanity Metrics We’re Abandoning
+### Simple Tier Structure
 
-❌ Reconciliation accuracy percentage  
-❌ Number of transactions processed  
-❌ Time to reconcile  
-❌ Matching confidence scores
+#### Starter - $297/month
 
-### Real Metrics That Drive Growth
+- Stripe only
+- Unlimited transactions
+- QuickBooks sync
+- Email support
 
-✅ **Revenue Recovered per Customer**
+**Target:** Small businesses testing automation
+**Positioning:** “Try automated reconciliation”
 
-- Target: $50K average Year 1
-- Drives: Customer success stories
-- Proves: Actual value delivery
+#### Growth - $597/month *(Primary tier)*
 
-✅ **Recovery ROI**
+- Stripe + one additional channel
+- Unlimited transactions
+- Priority support
+- Historical reconciliation (12 months)
 
-- Target: 10x customer investment
-- Drives: Easy sales conversations
-- Proves: No-brainer value prop
+**Target:** Growing businesses with multi-channel pain
+**Positioning:** “Complete reconciliation solution”
 
-✅ **Time to First Dollar**
+#### Scale - $997/month
 
-- Target: <7 days from signup
-- Drives: Immediate “aha” moments
-- Proves: Instant value
+- All payment channels
+- Unlimited transactions
+- API access
+- Dedicated success manager
 
-✅ **Viral Coefficient**
+**Target:** Larger SMBs approaching enterprise
+**Positioning:** “Enterprise features at SMB prices”
 
-- Target: Each customer refers 2+ others
-- Drives: “You have to see what they found”
-- Proves: Product-market fit
+### Pricing Rationale
 
-✅ **Revenue Share Percentage**
-
-- Target: 40% of revenue from success fees
-- Drives: Aligned growth model
-- Proves: We deliver real money
-
------
-
-## Technical Approach: Finding Money, Not Matching Transactions
-
-### The Discovery Engine Architecture
-
-```typescript
-class RevenueDiscoveryEngine {
-  // Pattern recognition across all customers
-  async learnFromNetwork(): Promise<Patterns> {
-    return {
-      feePatterns: this.aggregateFeeAnomalies(),      // "This fee is 2x industry average"
-      fraudSignals: this.collectFraudPatterns(),      // "This looks like return fraud"
-      failurePatterns: this.analyzePaymentFailures(), // "Cards from this bank always fail"
-      benchmarks: this.calculateIndustryNorms()       // "You're paying more than peers"
-    };
-  }
-  
-  // Proactive discovery
-  async huntForMoney(customer: Customer): Promise<Opportunities> {
-    const opportunities = [];
-    
-    // Check every transaction for fee correctness
-    opportunities.push(...this.auditAllFees(customer));
-    
-    // Find all failed payments worth recovering
-    opportunities.push(...this.identifyRecoverablePayments(customer));
-    
-    // Detect fraud and errors in returns
-    opportunities.push(...this.auditReturns(customer));
-    
-    // Compare to industry benchmarks
-    opportunities.push(...this.findBenchmarkGaps(customer));
-    
-    return this.prioritizeByValue(opportunities);
-  }
-  
-  // Automated recovery
-  async recoverMoney(opportunity: Opportunity): Promise<Result> {
-    switch(opportunity.type) {
-      case 'excessive_fee':
-        return this.fileClaimWithProvider(opportunity);
-      case 'failed_payment':
-        return this.executeSmartRetry(opportunity);
-      case 'fraud_return':
-        return this.disputeWithEvidence(opportunity);
-      case 'duplicate_charge':
-        return this.requestRefund(opportunity);
-    }
-  }
-}
-```
-
-### Intelligence Layer (Not Just AI Buzzwords)
-
-```typescript
-class CollectiveIntelligence {
-  // Learn from every customer to help all customers
-  patterns = {
-    // Amazon-specific
-    amazonFeeErrors: [
-      "Long-term storage on sold items",
-      "Incorrect category fees",
-      "Double-charged removal fees",
-      "Wrong dimensional weight"
-    ],
-    
-    // Stripe-specific  
-    stripeOvercharges: [
-      "International fees on domestic cards",
-      "Incorrect non-profit rates",
-      "Platform fees on direct charges",
-      "Radar fees when disabled"
-    ],
-    
-    // Shopify-specific
-    shopifyLeaks: [
-      "Double-processing across gateways",
-      "Incorrect POS vs online rates",
-      "Third-party app duplicate charges",
-      "Currency conversion markups"
-    ]
-  };
-  
-  // Network effect: Every customer makes us smarter
-  async improveFromDiscovery(discovery: Discovery): Promise<void> {
-    this.patterns[discovery.channel].push(discovery.pattern);
-    this.notifyNetworkOfNewPattern(discovery);
-    this.retroactivelyCheckAllCustomers(discovery.pattern);
-  }
-}
-```
+- **Time-based value:** 60 hours saved = $3,000 labor cost
+- **Below alternatives:** BlackLine at $6,400/month
+- **Fixed pricing:** Predictable costs, no transaction fees
 
 -----
 
-## Customer Experience: The “Holy Shit” Moment
+## Go-to-Market Strategy
 
-### Day 1: Immediate Discovery
+### Launch Strategy
 
-**Onboarding Goal: Find money in first session**
+#### Phase 1: Stripe Focus (Q1 2026)
 
-1. Connect payment channel (OAuth, 2 minutes)
-1. Start scanning last 90 days
-1. **Show first discovery within 60 seconds**
-1. “We found $3,247 in overcharges. Want to recover it?”
-1. One click to start recovery
+**Channels:**
 
-### Week 1: The First Check
+- Google Ads: “Stripe QuickBooks reconciliation”
+- Direct outreach to Shopify Plus stores
+- Stripe App Marketplace listing
 
-**Success Goal: Money in their bank**
+**Messaging:**
+“Reconcile a month of Stripe in 5 minutes”
 
-- Automated claims filed with providers
-- Smart retry campaigns launched
-- Daily updates: “Recovered another $428 today”
-- **First recovery hits their bank account**
-- Email: “Your first $3,247 has been recovered!”
+**Goals:**
 
-### Month 1: The Compound Effect
+- 5 paying customers
+- 3 case studies
+- Refine onboarding
 
-**Growth Goal: They can’t imagine life without us**
+#### Phase 2: Expansion (Q2 2026)
 
-- Weekly recovery report: “Found another $2,100 this week”
-- Benchmark report: “You’re now losing 2% less than peers”
-- Prevention alerts: “Blocked $500 in duplicate charges”
-- **Total recovered exceeds 3 months of subscription**
+**Add Second Channel:**
 
-### The Referral Moment
+- Launch Amazon or Shopify based on demand
+- Target existing customers for upgrades
 
-**Viral Goal: They tell everyone**
+**Goals:**
 
-The moment they tell others:
+- 40 total customers
+- $12K MRR
+- Prove multi-channel value
 
-- “They found $50K I didn’t know I was losing”
-- “It paid for itself in 3 days”
-- “I thought my books were perfect—they weren’t”
-- “My Amazon fees were 30% too high for 2 years”
+#### Phase 3: Scale (Q3-Q4 2026)
 
------
+**Full Platform:**
 
-## Competitive Positioning: We Find Money, Others Find Matches
+- All channels live
+- Referral program
+- Partnership discussions
 
-### The Positioning Matrix
+**Goals:**
 
-|Feature          |Mobius          |Ledge          |BlackLine        |Stripe Native |
-|-----------------|----------------|---------------|-----------------|--------------|
-|**Core Focus**   |Find lost money |Match payments |Compliance       |Basic matching|
-|**Value Prop**   |Revenue recovery|Accuracy       |Audit ready      |Free          |
-|**Pricing**      |% of recovery   |$1,500/month   |$6,400/month     |Free-$99      |
-|**Time to Value**|Day 1           |2 weeks        |4.5 months       |Instant       |
-|**ROI**          |10x guaranteed  |Time savings   |Compliance       |None          |
-|**Customer Says**|“Found $50K!”   |“It’s accurate”|“We’re compliant”|“It’s free”   |
+- 150 customers
+- $45K MRR
+- Seed funding secured
 
-### Our Unique Advantages
+### Customer Acquisition
 
-**1. Network Intelligence**
+**Primary Channel: Google Ads (60%)**
 
-- Every customer helps find patterns for all customers
-- Collective intelligence about fees, fraud, failures
-- “Wisdom of the crowd” for payment recovery
+- High-intent searches
+- Expected CAC: $800 → $400
+- Budget: $3K/month
 
-**2. Aligned Incentives**
+**Secondary: Direct Outreach (30%)**
 
-- We only succeed when customers recover money
-- No money found = we work harder
-- Success fees ensure we maximize recovery
+- Shopify Plus store list
+- LinkedIn to e-commerce CFOs
+- 100 qualified conversations/month
 
-**3. Immediate Value**
+**Tertiary: Marketplaces (10%)**
 
-- Find money in first session
-- No training, no consultants, no setup
-- ROI in days, not months
-
-**4. Compound Recovery**
-
-- Find historical errors (up to 5 years back)
-- Prevent future losses (real-time monitoring)
-- Optimize payment stack (routing, retry logic)
+- Stripe Apps
+- QuickBooks App Store
+- Organic/referral
 
 -----
 
-## The Path to Series A
+## Success Metrics
 
-### The Story We’ll Tell
+### Product Metrics
 
-> “Mobius has discovered that every business is losing 3-5% of revenue through payment blind spots. In just 4 months, we’ve recovered $10M+ for 500 customers, with an average ROI of 847%. We’re not a reconciliation tool—we’re a revenue recovery platform with a network effect. Every new customer makes us better at finding money for all customers.”
+- **Reconciliation time:** <5 minutes
+- **Match accuracy:** >95%
+- **Setup completion:** >80%
+- **Monthly active usage:** >90%
 
-### Metrics That Get VCs Excited
+### Business Metrics
 
-**Customer Economics:**
+- **CAC:** <$800 (Year 1), <$400 (Year 2)
+- **Monthly churn:** <5% (Year 1), <3% (Year 2)
+- **Gross margin:** >70%
+- **LTV:CAC:** >3:1
 
-- CAC: $500
-- Year 1 Recovery per Customer: $50,000
-- Our Revenue per Customer: $7,500 (15% of recovery)
-- LTV:CAC Ratio: 15:1
-- Payback Period: 20 days
+### Customer Success Metrics
 
-**Growth Metrics:**
-
-- Revenue recovered growing 100% MoM
-- Viral coefficient: 2.3 (every customer brings 2.3 more)
-- NRR: 165% (customers add channels as they see results)
-- Zero churn on customers who recover >$10K
-
-**Defensibility:**
-
-- Network effect: More customers = better pattern detection
-- Embedded workflow: Become their revenue protection system
-- Success alignment: Switching means losing money
-
-### The $1B Vision
-
-**Year 1:** Payment recovery ($10M recovered)
-**Year 2:** Full stack optimization ($100M recovered)
-**Year 3:** Predictive prevention ($500M protected)
-**Year 5:** The financial immune system for business ($2B protected)
-
-Every business needs this. Most don’t know it yet.
+- **Time to first value:** <24 hours
+- **Support resolution:** <4 hours
+- **NPS:** >50
+- **Customer time saved:** 60+ hours/month average
 
 -----
 
 ## Risk Mitigation
 
-### Risk: “What if we can’t find money for everyone?”
+### Product Risks
 
-**Mitigation:**
+**Risk:** Can’t achieve 95% matching accuracy
+**Mitigation:** Manual review queue, continuous learning, clear confidence scores
 
-- Free audit before charging
-- Money-back guarantee if we don’t find 3x subscription
-- Focus initial sales on high-probability segments (multi-channel, high volume)
+**Risk:** Payment processor API changes
+**Mitigation:** Version monitoring, regression testing, graceful degradation
 
-### Risk: “Payment providers block our recovery efforts”
+**Risk:** Plaid connectivity issues
+**Mitigation:** CSV upload fallback, multiple connection methods
 
-**Mitigation:**
+### Market Risks
 
-- Partner approach: We help them reduce disputes
-- Customer advocacy: Customers demand their money back
-- Legal backing: Clear documentation of overcharges
+**Risk:** QuickBooks adds native multi-channel reconciliation
+**Mitigation:** Move fast, build switching costs, superior UX
 
-### Risk: “Reconciliation accuracy still matters”
+**Risk:** Competitors copy approach
+**Mitigation:** First-mover advantage, pattern library moat
 
-**Mitigation:**
+### Execution Risks
 
-- We do both: Find money AND reconcile accurately
-- Position reconciliation as hygiene, recovery as growth
-- Show that bad reconciliation = lost money
+**Risk:** Complex onboarding hurts adoption
+**Mitigation:** White-glove onboarding for first 50 customers
+
+**Risk:** Customer support overwhelm
+**Mitigation:** Proactive monitoring, self-service docs, community forum
+
+-----
+
+## Implementation Timeline
+
+### Q4 2025: Foundation
+
+- Complete beta testing with 10 users
+- Achieve 95% matching accuracy
+- Polish Stripe integration
+- Prepare launch materials
+
+### Q1 2026: Launch
+
+- **January:** Convert 5 beta users to paid
+- **February:** Add 5 new customers
+- **March:** 20 total customers, gather feedback
+
+### Q2 2026: Expand
+
+- **April:** Launch second channel, 40 customers
+- **May:** Optimize based on learnings
+- **June:** 60 customers, hire support
+
+### Q3 2026: Scale
+
+- **July:** Launch third channel
+- **August:** 90 customers
+- **September:** 115 customers, begin fundraising
+
+### Q4 2026: Growth
+
+- **October:** API launch
+- **November:** 135 customers
+- **December:** 150 customers, $45K MRR, close seed round
+
+-----
+
+## Team Requirements
+
+### Current Team
+
+- Founders (technical + business)
+- Contract designer
+
+### Q1 2026 Hires
+
+- Customer Success Lead (part-time)
+- Technical Writer
+
+### Q2 2026 Hires
+
+- Support Engineer
+- Sales Executive
+
+### Post-Funding Hires
+
+- VP Sales
+- 2 Senior Engineers
+- Head of Customer Success
+- Marketing Manager
+
+-----
+
+## Technical Architecture
+
+### Matching Engine Pipeline
+
+Our sophisticated 4-stage matching architecture ensures 95% accuracy:
+
+1. **SQL Pattern Matching**
+- Direct amount and date matching
+- Known processor patterns
+- Handles 80% of standard cases
+1. **Vector Embeddings**
+- Semantic similarity for descriptions
+- Handles variations in bank descriptions
+- Learns from confirmed matches
+1. **ML Confidence Scoring**
+- Historical pattern recognition
+- Customer-specific learning
+- Confidence thresholds for auto-matching
+1. **Quality Assurance**
+- Manual review queue for <85% confidence
+- Bulk action tools for common patterns
+- Continuous feedback loop
+
+### Infrastructure
+
+- **Backend:** Node.js/TypeScript
+- **Database:** PostgreSQL with TimescaleDB
+- **Queue:** Redis/Bull for async processing
+- **APIs:** REST with GraphQL planned
+- **Hosting:** AWS with multi-region support
+- **Monitoring:** DataDog, Sentry, PagerDuty
+
+-----
+
+## Validation Metrics
+
+### What We’ve Proven
+
+- 92% matching accuracy in beta
+- 8-minute average setup time
+- 5-minute reconciliation achievable
+- Architecture scales to 100K transactions
+
+### What Needs Validation
+
+- $597 price point acceptance
+- 5% monthly churn achievable
+- $800 CAC sustainable
+- Multi-channel demand strength
+
+-----
+
+## Success Definition
+
+### Minimum Success (December 2026)
+
+- 100 paying customers
+- $30K MRR
+- <5% monthly churn
+- Clear product-market fit signals
+
+### Target Success (December 2026)
+
+- 150 paying customers
+- $45K MRR
+- Multiple channels proven
+- Seed funding secured
+
+### Exceptional Success (December 2026)
+
+- 200+ customers
+- $60K+ MRR
+- <3% monthly churn
+- Multiple term sheets
 
 -----
 
 ## Conclusion
 
-We’re not building a reconciliation tool. We’re building a revenue recovery platform that finds the 3-5% of revenue every business is losing and doesn’t know about.
+Mobius 1 solves a validated, quantified problem that costs SMBs 60+ hours monthly. Our multi-channel reconciliation platform delivers immediate time savings with simple, predictable pricing. With a realistic growth path to 150 customers and $45K MRR by December 2026, we’re positioned to capture a significant portion of the 55,000 SMBs currently underserved by existing solutions.
 
-The market doesn’t want better reconciliation—they want their money back.
+**Next Steps:**
 
-**Let’s stop helping businesses match transactions.**
-**Let’s start helping them find their missing money.**
-
-Every business is bleeding revenue through payment blind spots.
-We’re the cure.
-
-**Execute this plan and we’re not a $100M company—we’re a $1B company.**
-
-Because every business loses money.
-And we find it.
+1. Complete beta testing (December 2025)
+1. Launch with Stripe (January 2026)
+1. Achieve product-market fit (Q1 2026)
+1. Scale to 150 customers (December 2026)
 
 -----
 
-*“Revenue is vanity, profit is sanity, but cash is reality.”*
-*We deliver reality.*
+*“Multi-channel payment reconciliation in 5 minutes. Save 60 hours monthly.”*
 
-*Document maintained by: Product & Engineering*  
-*Last updated: August 16, 2025*  
-*Next review: August 19, 2025 (weekly during pivot)*
+**Mobius 1** | **Product Requirements Document**  
+**Last Updated:** November 2025  
+**Launch Date:** January 2026​​​​​​​​​​​​​​​​
