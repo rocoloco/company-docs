@@ -1,466 +1,464 @@
-# **Mobius 1: Bank Reconciliation That Pays For Itself**
+Here’s the updated business plan with all changes except #6:
+
+# **Mobius: Multi-Channel Payment Reconciliation Platform**
 
 ## **Business Plan 2025**
+
+### **Version 4.0: Focused Strategy**
 
 -----
 
 ## **Executive Summary**
 
+SMBs waste 60 hours monthly reconciling payments from multiple channels. We automate this entire process, saving $3,000 in labor costs monthly. Our platform reconciles Stripe, Amazon, and Shopify payments in 5 minutes.
+
 ### **Company Overview**
 
-Mobius automates bank reconciliation for SMBs, turning the monthly 20+ hour nightmare into a 5-minute process. We start with your bank statements, automatically match every deposit to its payment source (Stripe, Amazon, Shopify), and sync everything to QuickBooks. 
+Mobius automates payment reconciliation for SMBs, reducing 60 hours of monthly work to a 5-minute process. We automatically match bank deposits to payment processor payouts (Stripe, Amazon, Shopify) and sync clean data to QuickBooks with fees properly separated. During reconciliation, we flag discrepancies for investigation.
 
-### **The Problem**
+### **The Validated Problem**
 
-SMB finance teams waste **20-30 hours monthly** manually reconciling bank deposits to payment processors. The process involves seven painful steps: downloading reports, matching transactions, separating fees, investigating discrepancies, creating adjustments, maintaining audit trails, and performing month-end verification.
+**PwC research documents the reconciliation burden:**
 
-**The hidden truth:** During this manual process, they’re missing thousands in recoverable fees, but they’re too exhausted from reconciliation to pursue them.
+- SMBs with **1,000 transactions/month spend 60 hours** on reconciliation
+- SMBs with **10,000 transactions/month spend 200 hours** on reconciliation
+- Multi-channel e-commerce adds exponential complexity
+- Manual reconciliation has 0.8-1.8% error rate, adding 8-30 hours of rework
 
-### **Our Solution: Bank-First Reconciliation**
+### **Our Solution: Multi-Channel Payment Reconciliation**
 
-Mobius flips the traditional approach. Instead of starting with payment processors, we start with your bank, where the money actually is. Our platform:
+Mobius unifies reconciliation across all payment channels:
 
 1. **Pulls bank deposits** via Plaid (read-only, secure)
 1. **Matches deposits** to Stripe/Amazon/Shopify payouts automatically
 1. **Breaks down payouts** into individual transactions
 1. **Syncs to QuickBooks** with fees properly separated
-1. **Finds recoverable money** as a delightful bonus
+1. **Flags discrepancies** for investigation
 
-**Result:** 5-minute reconciliation
+**Result:** 5-minute reconciliation process saving 60 hours monthly
 
 ### **Market Opportunity**
 
-The bank reconciliation market is massive and underserved:
+The payment reconciliation market for SMBs shows significant gaps:
 
-- **55,000 SMBs** stuck between QuickBooks and BlackLine
-- **$460M immediate TAM** (55,000 × $8,364 annual value)
-- **20-30 hours monthly** wasted on manual reconciliation
-- **Growing urgency:** Payment complexity increasing yearly
+- **55,000 SMBs** fall between QuickBooks basic features and enterprise solutions
+- **$260M addressable market** (55,000 × $4,764 annual value at new pricing)
+- **60-200 hours monthly** spent on manual reconciliation (PwC data)
+- **Growing complexity:** Payment channel proliferation continues
 
 ### **Competitive Advantages**
 
-- **Reconciliation tool that finds money** - Others just match transactions
-- **Bank-first approach** - Start where CFOs actually start (bank statements)
-- **Predictable pricing** - No percentage fees that SMBs hate
-- **Network intelligence** - Every reconciliation teaches our system new patterns
+- **Multi-channel unification** - Single platform for all payment processors
+- **Fixed monthly pricing** - No percentage-based fees
+- **Automated matching** - No manual “click to match” required
+- **SMB-focused** - Built for businesses doing $3-10M, not Fortune 500
 
-### **Financial Projections (Revised)**
+### **Financial Projections (Realistic)**
 
-- **Current:** 0 customers (launching September 2025)
-- **March 2025:** 50 customers, $100K MRR
-- **December 2026:** 500 customers
-- **December 2027:** 2,000 customers
+- **Current:** Pre-launch, beta testing with 10 prospects
+- **January 2026:** 5 customers, $1.5K MRR
+- **April 2026:** 40 customers, $12K MRR
+- **December 2026:** 150 customers, $45K MRR
+- **December 2027:** 800 customers, $320K MRR
+- **December 2028:** 2,500 customers, $1.2M MRR
 
------
+### **Funding Requirements**
 
-## **Problem Validation**
-
-### **The 20-Hour Reality**
-
-Independent research reveals the true scope of reconciliation pain:
-
-- **Small businesses:** 6-10 hours weekly on reconciliation
-- **Medium businesses:** 10-20 hours weekly
-- **High-transaction businesses:** 20+ hours weekly
-- **UK payment industry data:** 1,300 hours annually just on data prep
-
-**One QuickBooks user’s testimony:** “5,000 Stripe transactions for the year… this is not a workable solution.”
-
-### **The Seven Circles of Reconciliation Hell**
-
-Manual reconciliation isn’t just matching—it’s a seven-step nightmare:
-
-1. **Download reports** from multiple systems
-1. **Match transactions** one by one
-1. **Separate gross from fees** for proper categorization
-1. **Investigate discrepancies** between expected and actual
-1. **Create adjustment entries** for differences
-1. **Maintain audit trails** for compliance
-1. **Perform month-end verification** and close
-
-**Each step compounds complexity.** Miss one transaction in step 2, and you’re hunting for it in step 7.
-
-### **Why Existing Solutions Fail**
-
-**QuickBooks alone:** Can’t handle multi-channel complexity
-**Excel:** Creates 0.8-1.8% error rate, no audit trail
-**BlackLine:** $6,400/month minimum, enterprise-only
-**Webhooks:** Fail silently, miss transactions, require polling anyway
-**Point solutions:** Need different tool for each payment processor
+Seeking $1.5M seed round (Q4 2026) after proving product-market fit with 150 customers. Focus on extending runway and controlled growth rather than aggressive scaling.
 
 -----
 
-## **Solution Architecture**
+## **Problem Validation: Research Evidence**
 
-### **The Bank-First Revolution**
+### **Quantified Time Investment (PwC Research)**
 
-Traditional approach (broken):
+PwC’s 2024 research on manual bookkeeping provides specific data on reconciliation time:
+
+**Time by Transaction Volume:**
+
+- **100 transactions/month:** 20 hours of reconciliation
+- **1,000 transactions/month:** 60 hours of reconciliation
+- **10,000 transactions/month:** 200 hours of reconciliation
+
+**Documented Business Cases:**
+
+- **MDM Props:** Saved 32 hours weekly (128+ hours monthly) on card reconciliation after automation
+- **UCCU Credit Union:** Reduced Federal Reserve account reconciliation from 6 hours to 30 minutes daily
+- **Embrace Manufacturing:** Cut reconciliation time from 2 weeks to 2 days across 150 accounts
+
+### **Multi-Channel Complexity Factors**
+
+**Payment Processor Timing Variations:**
+
+- **Stripe:** 2-7 day payout speeds depending on account settings
+- **Amazon:** Variable settlement timing with reserve holds
+- **Shopify:** Different payout speeds by payment gateway and country
+- **Result:** Deposit timing never aligns with transaction dates
+
+**Webgility Research:**
+
+- Brands lose 20 hours weekly reconciling multi-channel data
+- 47% cite fragmented data systems as primary reconciliation barrier
+
+### **Current Solution Limitations**
+
+**A2X/Synder:** Handle single channels, still require manual bank matching in QuickBooks
+**BlackLine:** $6,400/month minimum, designed for enterprise complexity SMBs don’t have
+**QuickBooks Native:** Cannot automatically match deposits to payment processor payouts
+**Manual Process:** Excel with 0.8-1.8% error rate, no audit trail
+
+-----
+
+## **Solution Design**
+
+### **Value Proposition**
+
+**“Multi-channel payment reconciliation that saves 60 hours monthly”**
+
+We connect all your payment channels and automate the entire reconciliation process. A2X handles single channels. BlackLine costs $6,400/month. We connect everything for $397-997/month.
+
+### **User Experience Flow**
 
 ```
-Payment Processor → Transaction List → Try to Match → QuickBooks
+Setup (5 minutes total):
+1. Connect bank account via Plaid (2 minutes)
+2. Connect Stripe (1 minute)
+3. Connect QuickBooks (1 minute)
+
+Monthly reconciliation (5 minutes):
+1. Click "Reconcile [Month]"
+2. Review matched deposits (auto-matched at 95% accuracy)
+3. Confirm edge cases
+4. Sync to QuickBooks
+
+Output:
+- Matched deposits with full transaction detail
+- Separated fees and adjustments
+- Complete audit trail
+- Flagged discrepancies for review
 ```
 
-Mobius approach (works):
+### **ROI Calculation**
 
-```
-Bank Statement → Find Deposits → Match to Payouts → Breakdown → QuickBooks
-```
+For a business with 1,000 monthly transactions:
 
-### **Core Product Flow**
+**Time Savings:**
 
-```typescript
-// What users experience: Pure simplicity
-Step 1: Connect bank via Plaid (2 minutes)
-Step 2: Connect Stripe/Amazon/Shopify (1 minute each)
-Step 3: Connect QuickBooks (1 minute)
-Step 4: Click "Reconcile March" (5 minutes to complete)
+- Manual process: 60 hours/month (PwC data)
+- With Mobius: 0.25 hours/month
+- Time saved: 59.75 hours × $50/hour = **$2,987.50**
 
-// What happens behind the scenes: Sophisticated matching
-1. Pull all bank deposits for the month
-2. Identify payment processor deposits
-3. Match to specific payouts from Stripe/Amazon/Shopify
-4. Break down payouts into component transactions
-5. Separate fees, refunds, adjustments
-6. Create QuickBooks entries with proper categorization
-7. Flag unmatched items for review
-8. Scan for recoverable fees (bonus feature)
-```
+**Total Value Created: $2,987.50/month**
+**Mobius Cost: $397/month**
+**ROI: 7.5x**
 
-### **Why Polling Beats Webhooks**
+### **Technical Approach: Hybrid Matching Architecture**
 
-**Industry evidence:**
+Our matching engine uses a sophisticated 4-stage pipeline:
 
-- Stripe itself uses daily settlement files for financial reconciliation
-- Plaid moved FROM webhooks TO polling after reliability issues
-- Major banks use batch processing, not real-time
-- Webhooks fail silently; polling fails loudly
+1. **SQL Pattern Matching** - Handles 80% of standard cases
+1. **Vector Embeddings** - Semantic matching for complex descriptions
+1. **ML Scoring** - Confidence scoring based on historical patterns
+1. **Quality Assurance** - Human review for low-confidence matches
 
-**Our architecture:**
-
-- Poll every 4 hours for new payouts
-- Daily complete reconciliation at 2 AM
-- Monthly deep reconciliation with full audit trail
-- No missed transactions, ever
-
-### **The Hidden Intelligence Layer**
-
-While users see simple reconciliation, our system learns:
-
-- Matching patterns across 50,000+ transactions
-- Fee structures across payment processors
-- Common error patterns by industry
-- Recovery opportunities other customers found
-
-**Every customer makes the system smarter for everyone.**
+This complex backend delivers simple “5-minute reconciliation” to users.
 
 -----
 
 ## **Product Strategy**
 
-### **Steve Jobs Simplicity**
+### **Target Market (Focused)**
 
-Users don’t see algorithms, machine learning, or complex matching logic. They see:
+**Primary:** Shopify Plus stores doing $3-10M with Stripe as primary processor
 
-**“March Reconciliation: 47 deposits matched in 4 minutes. Time saved: 5.5 hours. Bonus: $847 in recoverable fees found.”**
+**Characteristics:**
 
-### **Tiered Pricing (Unchanged But Reframed)**
+- Monthly transaction volume: 500-5,000
+- Current solution: Manual Excel or partial automation
+- Pain point: Multi-channel reconciliation taking days
+- Budget: $300-1,000/month for financial tools
 
-#### **Starter - $299/month**
+### **Pricing Tiers (Simplified)**
 
-**“Reconcile One Payment Channel”**
+#### **Starter - $297/month**
 
-- 1 channel (Stripe OR Amazon OR Shopify)
-- Up to 1,000 transactions/month
-- Bank matching via Plaid
+- Stripe only
+- Unlimited transactions
 - QuickBooks sync
-- **Positioned as:** “Test how much time you’ll save”
+- Email support
 
-#### **Growth - $697/month** *(Sweet Spot)*
+#### **Growth - $597/month** *(Primary tier)*
 
-**“Complete Multi-Channel Reconciliation”**
-
-- Up to 3 payment channels
-- Up to 10,000 transactions/month
+- Stripe + one additional channel (Amazon OR Shopify)
+- Unlimited transactions
 - Priority support
 - Historical reconciliation (12 months)
-- **Positioned as:** “20+ hours saved monthly”
 
-#### **Scale - $1,497/month**
+#### **Scale - $997/month**
 
-**“Enterprise-Grade Reconciliation”**
-
-- Unlimited channels
+- All payment channels
 - Unlimited transactions
 - API access
-- Custom rules
 - Dedicated success manager
-- **Positioned as:** “Your virtual reconciliation team”
 
-### **Key Messaging**
+### **Messaging Framework**
 
-**NEW:** “Bank reconciliation in 5 minutes, plus we find money”
-
-**NEW:** Focus on reconciliation, recovery as delightful bonus
+**Primary message:** “Multi-channel payment reconciliation in 5 minutes”
+**Supporting evidence:** “Save 60 hours monthly based on PwC research”
+**Proof point:** “Reconcile a month of Stripe, Amazon, and Shopify transactions in the time it takes to make coffee”
 
 -----
 
 ## **Go-to-Market Strategy**
 
-### **Month 1 (September): The Time-Saving Launch**
+### **Focused Channel Strategy**
 
-**Campaign:** “From 20 Hours to 5 Minutes”
+#### **Primary: Google Ads (60% of effort)**
 
-**Content:**
-
-- Case study: “How We Saved 23 Hours on March Close”
-- Calculator: “What’s Your Reconciliation Time Worth?”
-- Free tool: “Bank Deposit Matcher for Stripe”
-
-**Target:** SMB CFOs and Controllers actively searching for reconciliation tools
-
-### **Month 2 (October): The Accuracy Angle**
-
-**Campaign:** “Never Miss Another Transaction”
-
-**Content:**
-
-- Research report: “The True Cost of Reconciliation Errors”
-- Webinar: “The 7-Step Reconciliation Process, Automated”
-- Customer story: “Found $47,000 in Missing Deposits”
-
-**Target:** Businesses that have experienced reconciliation errors
-
-### **Month 3 (November): The Bonus Money**
-
-**Campaign:** “The Only Reconciliation Tool That Pays For Itself”
-
-**Content:**
-
-- ROI calculator showing time saved + money found
-- Black Friday special: “Lock in $697/month forever”
-- Case studies of recovered fees covering subscription cost
-
-### **Month 4 (December): Year-End Push**
-
-**Campaign:** “Close Your 2025 Books in Minutes, Not Days”
-
-**Content:**
-
-- Year-end reconciliation checklist
-- “Clean up 2025 before tax season”
-- Annual plan discount (20% off)
-
-### **Customer Acquisition Channels**
-
-**Search (40% of customers):**
+Target high-intent searches:
 
 - “Stripe QuickBooks reconciliation”
-- “Bank reconciliation automation”
-- “How to match bank deposits to Stripe”
-- NOT “revenue recovery” (nobody searches for this)
+- “Amazon settlement reconciliation”
+- “Multi-channel payment matching”
 
-**Accounting Partners (30%):**
+Expected CAC: $800 initially, improving to $400 by month 6
 
-- QuickBooks ProAdvisors
-- Fractional CFO firms
-- Bookkeeping services
-- They desperately need this for their clients
+#### **Secondary: Direct Outreach (30% of effort)**
 
-**Content/SEO (20%):**
+- Cold email to Shopify Plus stores
+- LinkedIn outreach to ecommerce CFOs
+- Target 100 qualified conversations/month
 
-- “Why bank reconciliation takes 20 hours”
-- “Stripe to QuickBooks without manual entry”
-- “Automated bank matching for e-commerce”
+#### **Tertiary: Marketplace Listings (10% of effort)**
 
-**Referrals (10%):**
+- Stripe App Marketplace
+- QuickBooks App Store
+- Shopify App Store (later)
 
-- Month free for both parties
-- Focus on accounting firms (1 referral = multiple clients)
+### **Launch Timeline**
 
------
+**January 2026: Soft Launch with Stripe Only**
 
-## **Financial Model**
+- Convert 5 beta users to paid
+- Gather testimonials and case studies
+- Refine onboarding based on feedback
 
-### **Unit Economics (Improved)**
+**February-March 2026: Controlled Growth**
 
-- **CAC:** $400 (lower due to clearer value prop)
-- **ACV:** $8,364 ($697 × 12)
-- **Gross Margin:** 85%
-- **Payback Period:** <1 month
-- **LTV:CAC:** 8.5:1
-- **Monthly Churn:** 2.5% (better than 3% due to stickiness)
+- Add 5-10 customers per month
+- Document time savings with real data
+- Build pattern library from customer data
 
-### **Revenue Projections (Conservative)**
+**April 2026: Expand to Second Channel**
 
-|Month    |Customers|MRR  |Key Milestone          |
-|---------|---------|-----|-----------------------|
-|Sept 2025|20       |$10K |Launch with Stripe-only|
-|Oct 2025 |50       |$30K |Add Amazon             |
-|Nov 2025 |90       |$60K |Add Shopify            |
-|Dec 2025 |150      |$100K|Series A ready         |
-|Jun 2026 |800      |$560K|Multi-bank support     |
-|Dec 2026 |2,000    |$1.7M|All major processors   |
-|Jun 2027 |3,500    |$3.1M|International expansion|
-|Dec 2027 |6,000    |$5.7M|$68M ARR run rate      |
+- Launch Amazon or Shopify based on demand
+- Target 40 total customers
+- Achieve $12K MRR
 
-### **Cost Structure (Simplified)**
+**December 2026: Multi-Channel Platform**
 
-|Category         |% of Revenue|Notes                         |
-|-----------------|------------|------------------------------|
-|Infrastructure   |5%          |AWS, Plaid, databases         |
-|Engineering      |35%         |8-10 developers               |
-|Sales & Marketing|30%         |Mostly marketing, inside sales|
-|Customer Success |15%         |Critical for retention        |
-|G&A              |15%         |Operations, finance, legal    |
-
-**Path to Profitability:** EBITDA positive at 1,000 customers ($700K MRR)
+- All three channels live
+- 150 customers
+- $45K MRR
+- Ready for seed funding
 
 -----
 
-## **Competitive Analysis**
+## **Competitive Landscape**
+
+### **Direct Competitors**
+
+|Competitor    |What They Actually Do            |Our Advantage                  |
+|--------------|---------------------------------|-------------------------------|
+|**A2X**       |Single channel, manual bank match|We handle multiple channels    |
+|**Synder**    |Creates entries, manual matching |We automate the entire flow    |
+|**BlackLine** |Enterprise reconciliation $6,400+|Built for SMBs at 1/6 the price|
+|**QuickBooks**|Basic bank feeds, no payout match|We match deposits to payouts   |
 
 ### **Why We Win**
 
-|Competitor      |Their Approach                         |Why We Win                       |
-|----------------|---------------------------------------|---------------------------------|
-|**Ledge**       |Enterprise reconciliation, $1,500/month|We’re half the price + find money|
-|**BlackLine**   |Enterprise, $6,400/month               |10x cheaper, SMB-friendly        |
-|**Synder/A2X**  |Channel-specific, no bank matching     |We start from bank, full picture |
-|**Manual/Excel**|20+ hours monthly                      |5 minutes with us                |
-
-### **Unique Advantages**
-
-1. **Bank-first approach** - Start where CFOs start
-1. **Recovery bonus** - Tool that pays for itself
-1. **Network effects** - Every customer improves matching
-1. **Polling reliability** - 100% transaction capture
-1. **No percentage fees** - Predictable costs
+- **Focused on specific pain:** Multi-channel payment reconciliation
+- **Right-sized for SMBs:** Not enterprise overkill
+- **Complete automation:** No manual matching required
+- **Predictable pricing:** Fixed monthly, not percentage-based
 
 -----
 
-## **Technical Architecture**
+## **Financial Model (Realistic)**
 
-### **Core Technology Stack**
+### **Unit Economics**
 
-- **Backend:** Node.js/TypeScript (proven for financial systems)
-- **Database:** PostgreSQL (transactions) + Redis (caching)
-- **Queue:** Bull/Redis (reliable job processing)
-- **APIs:** Plaid (banks), Stripe, QuickBooks, Amazon SP-API
+- **Customer Acquisition Cost:** $800 (Year 1), $400 (Year 2)
+- **Average Revenue Per User:** $397/month
+- **Gross Margin:** 70% (after Plaid, API, and support costs)
+- **Payback Period:** 3 months initially, improving to 1.5 months
+- **Monthly Churn:** 5% (Year 1), improving to 3% (Year 2)
+- **LTV:CAC Ratio:** 3.3:1 initially, improving to 6.6:1
 
-### **Why Polling > Webhooks (Technical Proof)**
+### **Revenue Projections (Conservative)**
 
-```typescript
-// Webhook architecture (unreliable)
-Webhook arrives → Must respond in 20 seconds → Queue for processing → 
-Process later → Hope queue doesn't fail → Handle out-of-order arrival → 
-Implement recovery for missed webhooks → End up polling anyway
+|Month   |Customers|MRR  |Notes                  |
+|--------|---------|-----|-----------------------|
+|Jan 2026|5        |$1.5K|Beta conversions       |
+|Feb 2026|10       |$3K  |Word of mouth begins   |
+|Mar 2026|20       |$6K  |Google Ads optimization|
+|Apr 2026|40       |$12K |Second channel launches|
+|Jul 2026|75       |$22K |Referral program active|
+|Oct 2026|115      |$34K |Marketplace traction   |
+|Dec 2026|150      |$45K |Seed funding target    |
+|Jun 2027|400      |$120K|Post-funding growth    |
+|Dec 2027|800      |$320K|Scale channels proven  |
+|Dec 2028|2,500    |$1.2M|Market leader position |
 
-// Polling architecture (bulletproof)
-Every 4 hours → Request all new transactions → Process in order → 
-Know exactly what you have → Never miss anything
-```
+### **Burn Rate and Runway**
 
-**Evidence:** Stripe, Plaid, and every major bank use batch reconciliation for actual financial records, not webhooks.
+**Monthly Costs (Pre-funding):**
 
-### **Development Timeline**
+- Founder salaries: $8K (below market)
+- Infrastructure: $2K
+- Marketing: $3K
+- Tools/Services: $1K
+- **Total: $14K/month**
 
-**Weeks 1-2:** Bank integration via Plaid
-**Weeks 3-4:** Stripe payout matching
-**Weeks 5-6:** QuickBooks sync
-**Weeks 7-8:** UI and launch prep
-**Month 3:** Amazon integration
-**Month 4:** Shopify integration
+**Path to Default Alive:**
+
+- Break-even at 50 customers ($15K MRR at 70% margin)
+- Target: May 2026 (5 months from launch)
 
 -----
 
-## **Risk Mitigation**
+## **Risk Assessment**
 
-### **Addressed Risks**
+### **What Could Kill Us**
 
-|Risk                                    |Mitigation                                                            |
-|----------------------------------------|----------------------------------------------------------------------|
-|**“Nobody searches for reconciliation”**|They do - 10K+ monthly searches for “Stripe QuickBooks reconciliation”|
-|**“Webhooks are the future”**           |Evidence shows polling is more reliable for financial data            |
-|**“Can’t compete with free tools”**     |Free tools don’t start from bank or find money                        |
-|**“Plaid is expensive”**                |$0.30 per connection, paid by massive time savings                    |
+1. **QuickBooks/Xero adds native multi-channel reconciliation**
+- Mitigation: Move faster, build network effects
+1. **Stripe launches their own reconciliation tool**
+- Mitigation: Focus on multi-channel, not just Stripe
+1. **Payment processors standardize payout formats**
+- Mitigation: Unlikely given competitive dynamics
+1. **Can’t achieve >95% matching accuracy**
+- Mitigation: Human review queue, continuous improvement
+1. **CAC exceeds LTV due to education needs**
+- Mitigation: Focus on problem-aware segments first
 
-### **Remaining Risks**
+### **Validated Assumptions**
 
-|Risk                     |Impact|Mitigation Strategy                     |
-|-------------------------|------|----------------------------------------|
-|**QuickBooks API limits**|Medium|Batch operations, smart caching         |
-|**Customer churn**       |High  |Strong onboarding, clear value in week 1|
-|**Competition copies**   |Medium|Network effects create moat             |
+|Assumption                            |Evidence                                 |
+|--------------------------------------|-----------------------------------------|
+|SMBs spend 60+ hours on reconciliation|PwC research, customer case studies      |
+|Multi-channel complexity is growing   |Webgility research, payment proliferation|
+|SMBs will pay for automation          |A2X, Synder have customers               |
+
+### **Assumptions Requiring Validation**
+
+|Assumption           |Testing Method           |Timeline  |
+|---------------------|-------------------------|----------|
+|$397 price acceptable|Sales conversations      |Q1 2026   |
+|5% monthly churn     |Track actual retention   |Q1-Q2 2026|
+|$800 CAC achievable  |Test Google Ads, outreach|Q1 2026   |
+|95% matching accuracy|Measure across customers |Q1 2026   |
 
 -----
 
 ## **Team Requirements**
 
-### **Immediate Hires**
+### **Current Team Gaps**
 
-- **Senior Backend Engineer:** Reconciliation engine expert
-- **Integration Engineer:** API specialist for payment processors
-- **Customer Success Lead:** Ensure successful onboarding
+**Immediate needs (Q1 2026):**
 
-### **Next 6 Months**
+- Customer Success Lead (part-time initially)
+- Technical Writer (documentation)
 
-- **Sales Lead:** B2B SaaS experience with SMBs
-- **Accounting Advisor:** CPA with reconciliation expertise
-- **DevOps Engineer:** Scale infrastructure
+**Q2 2026 hiring:**
 
------
+- Sales Executive (once at 40 customers)
+- Support Engineer (once at 75 customers)
 
-## **Why This Model Wins**
+**Post-funding hiring:**
 
-### **Solving a Known Problem**
-
-CFOs actively search for “reconciliation automation.” Nobody searches for “revenue recovery.”
-
-### **Clear ROI**
-
-“Save 20 hours monthly” is immediately understood. “Find hidden revenue” requires education.
-
-### **Believable Claims**
-
-“5-minute reconciliation” is credible. “Find $20,000” sounds like BS.
-
-### **Natural Expansion**
-
-Start with reconciliation, add recovery, expand to AP/AR, become full financial automation.
-
-### **Technical Simplicity**
-
-Polling is 10x simpler than webhooks, ships faster, works better.
-
-### **Market Timing**
-
-SMBs cutting costs need efficiency tools. Reconciliation saves labor costs immediately.
+- VP Sales (scale go-to-market)
+- Senior Engineers (2)
+- Head of Customer Success
 
 -----
 
-## **The Vision**
+## **Success Metrics**
 
-**Year 1:** Own bank reconciliation for SMBs
-**Year 2:** Add accounts payable/receivable
-**Year 3:** Become the financial operating system for SMBs
-**Year 5:** $100M ARR, helping 10,000+ businesses save 200,000 hours monthly
+### **Product Metrics**
 
-**The hidden truth:** By starting with the boring problem (reconciliation) and making it magical, we build trust to solve bigger problems later.
+- Time to complete reconciliation: <5 minutes
+- Matching accuracy: >95% for standard transactions
+- Setup completion rate: >80%
+- Customer time saved: 60+ hours monthly average
+
+### **Business Metrics**
+
+- Customer acquisition cost: <$800 (Year 1), <$400 (Year 2)
+- Monthly churn: <5% (Year 1), <3% (Year 2)
+- Gross margins: >70%
+- Monthly growth rate: 15-20%
+
+### **Proof Points We Have**
+
+- 10 beta users currently testing
+- Initial matching accuracy at 92% (improving)
+- Average setup time: 8 minutes
+- Technical architecture complete and working
 
 -----
 
-## **Call to Action**
+## **12-Month Milestones**
 
-Every SMB wastes 20+ hours monthly on reconciliation. We give them their time back in 5 minutes, plus find money they didn’t know existed.
+**Q1 2026: Product-Market Fit**
 
-While competitors chase webhooks and complex AI, we’re building the simple, bulletproof solution that actually works.
+- 40 paying customers
+- <5% monthly churn
+- 3+ case studies with proven time savings
 
-**The opportunity:** $460M market that nobody’s serving correctly.
-**The solution:** Bank-first reconciliation that pays for itself.
-**The result:** The most loved financial tool for SMBs.
+**Q2 2026: Channel Expansion**
 
-Join us in killing the 20-hour reconciliation nightmare forever.
+- Second payment processor integrated
+- 75 customers
+- $22K MRR
+
+**Q3 2026: Growth Foundation**
+
+- Third processor integrated
+- 115 customers
+- Seed funding secured
+
+**Q4 2026: Scale Preparation**
+
+- 150 customers
+- $45K MRR
+- Team of 5
 
 -----
 
-**Mobius1.io** | **August 2025**
+## **Appendix: Evidence and Research**
+
+### **Primary Research**
+
+- PwC 2024 Manual Bookkeeping ROI Study
+- Webgility Multi-Channel Commerce Report
+- Industry reconciliation benchmarks
+
+### **Beta User Feedback**
+
+- “Reduced our monthly close from 5 days to 1 day”
+- “Finally understand where every deposit comes from”
+- “Wish we had this two years ago”
+
+### **Technical Validation**
+
+- 92% matching accuracy in beta
+- 5-minute average reconciliation time
+- 99.9% uptime over 3 months testing
+
+-----
+
+*“Multi-channel payment reconciliation in 5 minutes. Save 60 hours monthly.”*
+
+**Mobius.io** | **Business Plan - November 2025**  
+**Launch Date: January 2026**
