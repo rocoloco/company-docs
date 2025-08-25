@@ -62,10 +62,6 @@ The payment reconciliation market for SMBs shows significant gaps:
 - **December 2027:** 800 customers, $360K MRR
 - **December 2028:** 2,500 customers, $1.4M MRR
 
-### **Funding Requirements**
-
-Seeking $1.5M seed round (Q4 2026) after proving product-market fit with 150 customers. Focus on extending runway and controlled growth rather than aggressive scaling.
-
 -----
 
 ## **Problem Validation: Research Evidence**
